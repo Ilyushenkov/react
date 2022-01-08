@@ -1,12 +1,11 @@
-import React from "react";
-import Component from "./components/component";
+import React, {useState} from "react";
+import Tickets_list from "./components/tickets_list";
 
 function App() {
 
   return (
     <div className="App">
-    <Component/>
-
+       <Tickets_list/>
     </div>
   );
 }
