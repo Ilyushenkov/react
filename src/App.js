@@ -1,11 +1,11 @@
+import Search from "./components/search";
 
-import Tickets_list from "./components/tickets_list";
 
 function App() {
 
   return (
     <div className="App">
-       <Tickets_list/>
+      <Search/>
     </div>
   );
 }

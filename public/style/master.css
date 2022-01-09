@@ -13,7 +13,7 @@ body {
   
 header{
     background: #163a1e;
-    grid-row: 1/2;     
+    grid-row: 1/2;
 }
 input, select{
 max-width: 300px;
@@ -38,16 +38,18 @@ max-width: 300px;
         display: flex;
         flex-direction: column;  
         align-items: center;
+    padding-top: 15px;
 }
 section{
     width: 80%;
     min-width: 310px;
     background: #163a1e;
     margin: auto;
+
     border-radius: 0 0 35px 35px;
     border: azure solid 2px;
     padding: 5px;
-    box-shadow: 0 0 150px #16f2ef;   
+    /*box-shadow: 0 0 150px #16f2ef;   */
 }
 h1{
     text-align: center;
@@ -144,7 +146,7 @@ footer{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
+    /*justify-content: space-around;*/
 }
 .row_align_nowrap{
    display: flex;
@@ -169,7 +171,7 @@ footer{
     width: 45%;
     min-width: 250px;
     font-size: medium;
-    margin: 10px; 
+    margin: 10px;
 }
 .button{
     border: #e62fb1 solid 1px;;
