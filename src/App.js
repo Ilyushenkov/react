@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+
 import Tickets_list from "./components/tickets_list";
 
 function App() {

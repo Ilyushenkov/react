@@ -1,8 +1,10 @@
-import React, {useState} from 'react';
+import React, {useRef, useState} from 'react';
 import Tickets_list from "./tickets_list";
 import {render} from "react-dom";
 import tickets from "./tickets";
-const Modal = () => {
+const Modal = (props) => {
+
+
     let [name, setName]=useState()
     let [date, setDate]=useState()
     let [time, setTime]=useState()
@@ -16,7 +18,7 @@ const Modal = () => {
                 <p className={'color_white row_item'}>Дата концерта: </p><input className={'row_item'} type={'date'} value={date} onChange={e=>setDate(e.target.value)}/>
                 <p className={'color_white row_item'}>Время концерта: </p><input className={'row_item'} type={'time'} value={time} onChange={e=>setTime(e.target.value)}/>
                 <p className={'row_align'}>
-                    <input type={'button'} className={'button'} value={'Добавить'} onClick={()=>render([<Tickets_list ticket={{
+                    <input type={'button'} className={'button'} value={'Добавить'} onClick={()=>render([           <Tickets_list ticket={{
                         name: name,
                         code: code,
                         date: date,
