@@ -1,13 +1,13 @@
-import React, {useRef} from 'react';
+import React, {useRef, useState} from 'react';
 import request from '../action/request'
-import Concerts from "./concerts";
 const Search = () => {
+    document.getElementsByClassName('screen')[2].style.display='block'
     let element_start=useRef()
     let element_finish=useRef()
     let element_type=useRef()
-    let object1=Concerts
-    let object2=Search
-    //let element_guests=useRef()
+    let [guests, setGuests]=useState(1)
+    localStorage.guests=guests
+    console.log(localStorage.guests)
     return (
         <div>
             <section id="find">
@@ -30,11 +30,12 @@ const Search = () => {
                                     <option value="другое">Другое</option>
                                 </select>
                                 <label htmlFor="amount_pers" className="row_item">Количество гостей:</label>
-                                <input type={"number"} name={"amount_pers"} min={1} max={5} step={1} className={"test-0-fnp row_item"}  id={"amount_pers"}/>
+                                <input type={"number"} name={"amount_pers"} min={1} max={5} step={1} placeholder={1} className={"test-0-fnp row_item"}
+                                       onChange={(e)=>setGuests(e.target.value)} id={"amount_pers"}/>
                     </fieldset>
                     <div className="row_align">
                         <input type="button" value="Поиск билетов" className="test-0-fbs button row_item"
-                               onClick={()=>request('http://tickets.сделай.site/api/concert', `?date1=${element_start.current.value}&date2=${element_finish.current.value}&type=${element_type.current.value}`, 'GET', object1, object2)}/>
+                               onClick={()=>request(`http://tickets.сделай.site/api/concert?date1=${element_start.current.value}&date2=${element_finish.current.value}&type=${element_type.current.value}`,null, 'GET', 1)}/>
                         <input type="reset" value="Сбросить значения" className="test-0-fbs button row_item"/>
                     </div>
                 </form>

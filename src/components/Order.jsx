@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Concerts = (props) => {
-console.log(props.answer)
+const Order = () => {
+    console.log('Я пришел')
     return (
         <div>
 
@@ -9,4 +9,4 @@ console.log(props.answer)
     );
 };
 
-export default Concerts;
+export default Order;
