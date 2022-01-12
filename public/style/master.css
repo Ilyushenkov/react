@@ -6,7 +6,7 @@ padding: 5px;
 body {
     height: 100vh;   
     display: grid;
-    grid-template-rows: auto auto 1fr auto auto;
+    grid-template-rows: auto 1fr auto;
     grid-column-gap: 2px;
     grid-row-gap: 2px;   
    }
@@ -32,12 +32,12 @@ max-width: 300px;
 #maruv {
         animation: width 2s infinite;
     }
-main{
+#root{
 	background: url('../image/background2.jpeg');
-        grid-row: 3/4;
         display: flex;
         flex-direction: column;  
         align-items: center;
+    grid-row: 2/3;
     padding-top: 15px;
 }
 section{
@@ -60,7 +60,7 @@ h1{
 }
 footer{
 	background: #163a1e;
-	grid-row: 5/6;
+	grid-row: 3/4;
 }
 #stars{
    justify-content: center;      
@@ -162,6 +162,7 @@ footer{
     flex-direction: column;
     min-width: 300px;
     width: 90%;
+    justify-content: center;
 }
 .border_white{
     border: white solid 1px;
@@ -471,24 +472,22 @@ footer{
 .show{
     display: flex;
 }
-/*.hidden{
+.hidden{
     display: none;
-}*/
+}
 #error{
     display: none;
     background: white;
     border: red solid 3px;
     border-radius: 10px;
     color: black;
-    grid-row: 2/3;
     text-align: center;
     margin-top: 15px;
     min-width: 300px;
     max-width: 600px;
     width: 50%;
-    margin-inside: auto;
+    margin-inline: auto;
 }
 #navigation{
     display: none;
-    grid-row: 4/5;
 }

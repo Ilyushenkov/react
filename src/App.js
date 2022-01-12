@@ -1,12 +1,14 @@
 import Search from "./components/search";
+import Concerts from "./components/concerts";
+
 
 
 function App() {
 
   return (
-<div className={'screen'}>
-      <Search/>
-</div>
+
+<Search/>
+
   );
 }
 

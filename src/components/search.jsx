@@ -1,15 +1,14 @@
 import React, {useRef, useState} from 'react';
 import request from '../action/request'
 const Search = () => {
-    document.getElementsByClassName('screen')[2].style.display='block'
+    document.getElementsByClassName('screen')[0].style.display='block'
     let element_start=useRef()
     let element_finish=useRef()
     let element_type=useRef()
     let [guests, setGuests]=useState(1)
     localStorage.guests=guests
-    console.log(localStorage.guests)
     return (
-        <div>
+        <div className={'width100'}>
             <section id="find">
                 <h1>Форма поиска</h1>
                 <p className="color_red"><i>Лучший путеводитель в мире развлечений</i></p>
@@ -26,7 +25,7 @@ const Search = () => {
                                     <option value="рок">Рок</option>
                                     <option value="джаз">Джаз</option>
                                     <option value="народная/фолк">Народная/фолк</option>
-                                    <option value="хип-хоп">Поп-музыка</option>
+                                    <option value="поп-музыка">Поп-музыка</option>
                                     <option value="другое">Другое</option>
                                 </select>
                                 <label htmlFor="amount_pers" className="row_item">Количество гостей:</label>
