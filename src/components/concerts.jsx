@@ -4,15 +4,25 @@ import {render} from "react-dom";
 
 
 const Concerts = (props) => {
-
-    document.getElementsByClassName('screen')[2].style.display='flex'
-    let concerts=props.answer.data.concert
-   let list_concert=concerts.map((concerts, index)=><Concert data={concerts} number={index}/>)
+console.log(props.data)
+if(props.data.length===0){
     return (
         <div className={'width100'}>
             <section>
                 <h1>Найденные концерты</h1>
-                {list_concert}
+                <h2 className={'error'} style={{display: 'flex', padding:'20px', justifyContent:'center'}} >Концерты не найдены</h2>
+            </section>
+
+        </div>
+    )
+}
+    return (
+        <div className={'width100'}>
+            <section>
+                <h1>Найденные концерты</h1>
+                <div className={'row_align'}>
+                {props.data}
+                </div>
             </section>
 
         </div>

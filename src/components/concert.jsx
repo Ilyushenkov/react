@@ -1,18 +1,19 @@
 import React from 'react';
 
 const Concert = (props) => {
-    console.log(props)
     return (
-        <div>
+        <div className={'row_item'}>
 
 
                 <p className="color_red">Результат {props.number+1}</p>
-                <div className="border_white row_item">
+                <div className="border_white row_item width100 row_align">
 
                         <p className="color_blue row_item">Номер билета:</p>
                         <p className="test-4-fn row_item color_white">{props.data.concert_code}</p>
                         <p className="color_blue row_item">Название концерта:</p>
                         <p className="test-4-at row_item color_white">{props.data.name_concert}</p>
+                        <p className="color_blue row_item">Дата концерта:</p>
+                        <p className="test-4-at row_item color_white">{props.data.date_concert}</p>
                         <p className="color_blue row_item">Время начала концерта:</p>
                         <p className="test-4-dd row_item color_white">{props.data.time_start}</p>
                         <p className="color_blue row_item">Время окончания концерта</p>

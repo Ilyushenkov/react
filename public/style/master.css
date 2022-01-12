@@ -146,7 +146,7 @@ footer{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    /*justify-content: space-around;*/
+    justify-content: center;
 }
 .row_align_nowrap{
    display: flex;
@@ -170,7 +170,7 @@ footer{
 }
 .row_item{
     width: 45%;
-    min-width: 250px;
+    /*min-width: 250px;*/
     font-size: medium;
     margin: 10px;
 }
@@ -475,7 +475,7 @@ footer{
 .hidden{
     display: none;
 }
-#error{
+.error{
     display: none;
     background: white;
     border: red solid 3px;
