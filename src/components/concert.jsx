@@ -4,8 +4,6 @@ const Concert = (props) => {
     return (
         <div className={'row_item'}>
 
-
-                <p className="color_red">Результат {props.number+1}</p>
                 <div className="border_white row_item width100 row_align">
 
                         <p className="color_blue row_item">Номер билета:</p>
