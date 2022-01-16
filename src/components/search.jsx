@@ -1,5 +1,6 @@
 import React, {useRef, useState} from 'react';
 import request from '../action/request'
+import nav_button from "./nav_button";
 const Search = () => {
     document.getElementsByClassName('screen')[0].style.display='block'
     let element_start=useRef()
@@ -7,6 +8,7 @@ const Search = () => {
     let element_type=useRef()
     let [guests, setGuests]=useState(1)
     localStorage.guests=guests
+    nav_button(0)
     return (
         <div className={'width100'}>
             <section id="find">

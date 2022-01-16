@@ -1,9 +1,15 @@
-import React, {useState} from 'react';
+import React, {useMemo, useState} from 'react';
 
 
 const Concerts = (props) => {
 let [sort, setSort]=useState('price')
-   let sort_data=props.data
+    let [low_price, setLowprice]=useState(0)
+    let [high_price, setHighprice]=useState(Infinity)
+   let sort_data=useMemo(()=>{return props.data.filter((data, index, arr)=>{
+       return(arr[index].props.data.price>=low_price && arr[index].props.data.price<=high_price)})})
+    if (low_price<0) setLowprice(0)
+    if(high_price<low_price) setHighprice(Infinity)
+
 
     switch (sort){
         case 'price': sort_data.sort((a, b)=>{
@@ -19,18 +25,31 @@ let [sort, setSort]=useState('price')
         })
             break
     }
-if(props.data.length===0){
+if(sort_data.length===0){
     return (
         <div className={'width100'}>
             <section>
                 <h1>Найденные концерты</h1>
+
+                <div className={'row_align border_white'}>
+                    <p className={'row_item color_white'}>Цена от, руб: <input type={'number'} onChange={(e)=>setLowprice(e.target.valueAsNumber)}/></p>
+                    <p className={'row_item color_white'}>Цена до, руб: <input type={'number'} onChange={(e)=>setHighprice(e.target.valueAsNumber)}/></p>
+                    <p className={'row_item color_white'}>Выберите фильтр:
+                        <select value={sort} style={{minWidth:'150px'}} onChange={(e)=>setSort(e.target.value)}>
+                            <option value={'price'}>По цене</option>
+                            <option  value={'date'}>По дате</option>
+                        </select>
+                    </p>
+                </div>
+
+
                 <h2 className={'error'} style={{display: 'flex', padding:'20px', justifyContent:'center'}} >Концерты не найдены</h2>
             </section>
 
         </div>
     )
 }
-console.log(sort_data)
+
     return (
 
         <div className={'width100'}>
@@ -39,8 +58,8 @@ console.log(sort_data)
 
                 <h1>Найденные концерты</h1>
                     <div className={'row_align border_white'}>
-                        <p className={'row_item color_white'}>Цена от, руб: <input type={'number'}/></p>
-                        <p className={'row_item color_white'}>Цена до, руб: <input type={'number'}/></p>
+                        <p className={'row_item color_white'}>Цена от, руб: <input type={'number'} onChange={(e)=>setLowprice(e.target.valueAsNumber)}/></p>
+                        <p className={'row_item color_white'}>Цена до, руб: <input type={'number'} onChange={(e)=>setHighprice(e.target.valueAsNumber)}/></p>
                         <p className={'row_item color_white'}>Выберите фильтр:
                             <select value={sort} style={{minWidth:'150px'}} onChange={(e)=>setSort(e.target.value)}>
                                 <option value={'price'}>По цене</option>
@@ -48,7 +67,6 @@ console.log(sort_data)
                             </select>
                         </p>
                     </div>
-
 
                 <div className={'row_align'}>
                 {sort_data}

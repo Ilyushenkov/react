@@ -1,4 +1,6 @@
 import React from 'react';
+import order from "../action/order";
+
 
 const Concert = (props) => {
     return (
@@ -25,7 +27,7 @@ const Concert = (props) => {
 
 
                         <input type="button" value="Оформить заказ"
-                               onClick="window.location.href = '../html/order.html'" className="test-4-bsb button"/>
+                               onClick={()=>order(props.data)} className="test-4-bsb button"/>
                 </div>
 
 

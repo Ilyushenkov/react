@@ -15,7 +15,6 @@ console.log(url)
             let status=result.status
 
     let Functions=[search, concert_process, order]
-console.log(Functions)
        switch (status){
        case 200:
            document.getElementById('error').style.display='none'

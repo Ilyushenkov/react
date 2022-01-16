@@ -5,8 +5,8 @@ import Concerts from "../components/concerts";
 function concert_process(answer) {
 
     let concerts=answer.data.concert
-    let list_concert=concerts.map((concerts, index)=><Concert data={concerts} number={index}/>)
-    render(<Concerts data={list_concert}/>, document.getElementsByClassName('screen')[1])
+    let list_concert=concerts.map((concerts, index)=><Concert data={concerts} number={index} key={index}/>)
+    render([<Concerts data={list_concert} key={0}/>], document.getElementsByClassName('screen')[1])
     document.getElementsByClassName('screen')[1].style.display='flex'
 }
 
