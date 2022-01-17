@@ -8,8 +8,9 @@ import nav_button from "./nav_button";
 
 
 async function request(url, body, method, screen) {
-console.log(url)
-            let request_options={method: method,body:body}
+    let myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer "+localStorage.token+'hhhhh');
+            let request_options={method: method, body:body, headers:myHeaders}
             let result=await fetch(url,request_options)
             let answer=await result.json()
             let status=result.status
@@ -21,11 +22,15 @@ console.log(url)
            for (let i=0; i<document.getElementsByClassName('screen').length; i++) {
                document.getElementsByClassName('screen')[i].style.display = 'none'
            }
+           if (screen===null) return answer
         Functions[screen](answer)
            nav_button(screen)
                return
        case 422:
            return render([<Error title={'Ошибка валидации'} message={answer}/>], document.getElementById('error'))
+           case 401:
+               return render([<Error title={'Ошибка авторизации'} message={'Номер телефона или пароль неправильные'}/>], document.getElementById('error'))
+
 
    }
 

@@ -385,7 +385,7 @@ footer{
   }  
   /*О заказе*/
    .custom{
-      display: flex;
+      display: none;
       flex-direction: row;
       width: 45%;
       min-width: 300px;

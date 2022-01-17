@@ -1,6 +1,13 @@
 import React from 'react';
-
+import Custom from "./custom";
+import Customs_control from "../action/customs_control";
+import request from "../action/request";
 const Order = (props) => {
+
+
+    let number=[0, 1, 2, 3, 4, 5, 6, 7]
+   let list_customs=number.map((data,index)=>Custom(index))
+
 
     return (
 <section className={'width100'}>
@@ -24,7 +31,8 @@ const Order = (props) => {
                 <p className="color_blue row_item">Стоимость:</p>
                 <p className="test-4-fp row_item color_white">{props.data.price}</p>
             </div>
-    <p className={'color_red'}>Информация о гостях</p>
+        <p className={'color_red'}>Информация о гостях</p>
+    {list_customs}
 
 </section>
 
