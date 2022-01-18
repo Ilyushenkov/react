@@ -1,12 +1,12 @@
 import React from 'react';
 
 const Error = (props) => {
-    let error=document.getElementById('error');
-    error.style.display='block';
+    let error=document.getElementById('error')
+    error.style.display='block'
    let message=''
 
     for (var key in props.message.error.error) {
-        message+=`${key}: ${props.message.error.error[key]}<br/>`;
+        message+=`${key}: ${props.message.error.error[key]}<br/>`
     }
     return (
         <div>

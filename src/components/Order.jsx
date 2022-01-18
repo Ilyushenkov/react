@@ -1,13 +1,11 @@
 import React from 'react';
 import Custom from "./custom";
-import Customs_control from "../action/customs_control";
-import request from "../action/request";
 const Order = (props) => {
 
-
     let number=[0, 1, 2, 3, 4, 5, 6, 7]
-   let list_customs=number.map((data,index)=>Custom(index))
+    let list_customs=number.map((data,index)=>Custom(index))
 
+first_custom()
 
     return (
 <section className={'width100'}>
@@ -32,11 +30,27 @@ const Order = (props) => {
                 <p className="test-4-fp row_item color_white">{props.data.price}</p>
             </div>
         <p className={'color_red'}>Информация о гостях</p>
-    {list_customs}
-
+    <div className={'width100 row_align'}>
+        {list_customs}
+    </div>
 </section>
 
     );
 };
+
+async function first_custom(){
+    let myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer "+localStorage.token);
+    let request_options={method: 'GET', headers:myHeaders}
+    let result=await fetch('http://tickets.сделай.site/user',request_options)
+    let answer=await result.json()
+    let status=result.status
+    if (status===200){
+        document.getElementsByClassName('test-5-name')[0].value=answer.first_name
+        document.getElementsByClassName('test-5-last')[0].value=answer.last_name
+        document.getElementsByClassName('test-5-dob')[0].value=answer.phone
+        document.getElementsByClassName('test-5-doc')[0].value=answer.document_number
+    }
+}
 
 export default Order;
