@@ -1,5 +1,5 @@
 function order_manegment() {
-
+console.log('привет')
 }
 
 

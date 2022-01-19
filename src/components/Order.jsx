@@ -1,10 +1,8 @@
 import React from 'react';
 import Custom from "./custom";
-import {useRef} from "react";
 const Order = (props) => {
 
     let number=[0, 1, 2, 3, 4, 5, 6, 7]
-localStorage.guests=[1, 0, 0, 0, 0, 0, 0, 0]
     let list_customs=number.map((data,index)=>Custom(index))
 
 
@@ -64,7 +62,7 @@ async function first_custom(first_name){
 
     let guests_all=number.map((data, index)=>{return {first_name:first_name[index].value, last_name:last_name[index].value,
         phone:phone[index].value, document_number:document_number[index].value}})
-    console.log(guests_all)
+
 }
 
 export default Order;

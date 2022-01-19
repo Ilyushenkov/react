@@ -2,11 +2,13 @@ import {render} from "react-dom";
 import NavButton from "../components/nav_button";
 import order_manegment from "./order_manegment";
 function nav_button(screen) {
+    let title1='<<Вернуться'
+    let title2='Продолжить>>'
 
     switch (screen){
         case 0: document.getElementById('navigation').style.display='none'; return
         case 1: rend(screen); document.getElementById('navigation').children[1].style.display='none'; return;
-        case 3: order_manegment(); break
+        case 2: title2='Подтвердить'; break
     }
 
 
@@ -30,13 +32,13 @@ function nav_button(screen) {
     document.getElementById('navigation').style.display='flex'
 
     function rend(screen){
-        render([<NavButton onclick={()=>click_btn1(screen-1)} value={'<<Назад'} key={0}/>, <NavButton onclick={()=>click_btn2(screen+1)} value={'Вперед>>'} key={1}/>],
+        render([<NavButton onclick={()=>click_btn1(screen-1)} value={title1} key={0}/>, <NavButton onclick={()=>click_btn2(screen+1)} value={title2} key={1}/>],
             document.getElementById('navigation'))
         document.getElementById('navigation').style.display='flex'
         document.getElementsByClassName('screen')[screen].style.display='flex'
         if (screen===0){document.getElementById('navigation').style.display='none'}
         if (screen===1){document.getElementById('navigation').children[1].style.display='none'}
-
+        if (screen===3){order_manegment()}
     }
 
 
