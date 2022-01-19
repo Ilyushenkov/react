@@ -8,8 +8,7 @@ const Custom = (props) => {
                     <div className={'custom'} style={{display:'flex'}}>
 
                         <div className="color_blue row_item">Имя:</div>
-                        <input type="text" className="test-5-name row_item" required/>
-                        <div className="color_blue row_item">Фамилия:</div>
+                        <input type="text" className="test-5-name row_item" required />
                         <input type="text" className="test-5-last row_item" required/>
                         <div className="color_blue row_item">Телефон:</div>
                         <input type="tel" className="test-5-dob row_item" required/>

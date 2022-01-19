@@ -1,11 +1,12 @@
 import {render} from "react-dom";
 import NavButton from "../components/nav_button";
-
+import order_manegment from "./order_manegment";
 function nav_button(screen) {
 
     switch (screen){
         case 0: document.getElementById('navigation').style.display='none'; return
         case 1: rend(screen); document.getElementById('navigation').children[1].style.display='none'; return;
+        case 3: order_manegment(); break
     }
 
 

@@ -1,9 +1,14 @@
 import React from 'react';
 import Custom from "./custom";
+import {useRef} from "react";
 const Order = (props) => {
 
     let number=[0, 1, 2, 3, 4, 5, 6, 7]
+localStorage.guests=[1, 0, 0, 0, 0, 0, 0, 0]
     let list_customs=number.map((data,index)=>Custom(index))
+
+
+
 
 first_custom()
 
@@ -38,7 +43,7 @@ first_custom()
     );
 };
 
-async function first_custom(){
+async function first_custom(first_name){
     let myHeaders = new Headers();
     myHeaders.append("Authorization", "Bearer "+localStorage.token);
     let request_options={method: 'GET', headers:myHeaders}
@@ -51,6 +56,15 @@ async function first_custom(){
         document.getElementsByClassName('test-5-dob')[0].value=answer.phone
         document.getElementsByClassName('test-5-doc')[0].value=answer.document_number
     }
+   let number=[0,1,2,3,4,5,6,7]
+    first_name=document.getElementsByClassName('test-5-name')
+    let last_name=document.getElementsByClassName('test-5-last')
+    let phone=document.getElementsByClassName('test-5-dob')
+    let document_number=document.getElementsByClassName('test-5-doc')
+
+    let guests_all=number.map((data, index)=>{return {first_name:first_name[index].value, last_name:last_name[index].value,
+        phone:phone[index].value, document_number:document_number[index].value}})
+    console.log(guests_all)
 }
 
 export default Order;
