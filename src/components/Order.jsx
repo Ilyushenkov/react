@@ -1,5 +1,7 @@
 import React from 'react';
 import Custom from "./custom";
+import Nav_button from "./nav_button";
+import order_manegment from "../action/order_manegment";
 const Order = (props) => {
 
     let number=[0, 1, 2, 3, 4, 5, 6, 7]
@@ -35,7 +37,11 @@ first_custom()
         <p className={'color_red'}>Информация о гостях</p>
     <div className={'width100 row_align'}>
         {list_customs}
+
     </div>
+        <div className={'width100 row_align'}>
+    <Nav_button onclick={()=>order_manegment(props)} value={'Подтвердить'} style={{marginInline:'auto'}}/>
+        </div>
 </section>
 
     );

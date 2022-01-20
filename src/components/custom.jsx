@@ -1,8 +1,24 @@
-import React from 'react';
-let guests_list=[1, 0, 0, 0, 0, 0, 0, 0]
+import React, {createContext, useContext} from 'react';
 const Custom = (props) => {
+
+    function add(item){
+        document.getElementsByClassName('custom')[item+1].style.display = 'flex'
+        global.guest_list[item+1]=1
+        console.log(global.guest_list)
+
+
+    }
+
+    function del(item){
+        document.getElementsByClassName('custom')[item].style.display = 'none'
+        global.guest_list[item]=0
+        console.log(global.guest_list)
+
+    }
+
    switch (props){
         case 0:
+
                return (
                     <div className={'custom'} style={{display:'flex'}}>
 
@@ -14,16 +30,12 @@ const Custom = (props) => {
                         <input type="tel" className="test-5-dob row_item" required/>
                         <div className="color_blue row_item">Номер документа:</div>
                         <input type="text" className="test-5-doc row_item" required/>
-                        <input type={'button'} className="test-5-add button" value="Добавить покупателя" onClick={()=>{
-                            document.getElementsByClassName('custom')[props+1].style.display = 'flex'
-                            guests_list[props+1]=1}}/>
+                        <input type={'button'} className="test-5-add button" value="Добавить покупателя" onClick={()=>add(props)}/>
                     </div>)
 
         case 7: return (
             <div className={'custom'}>
-                <div className="test-5-remove" onClick={()=> {
-                    document.getElementsByClassName('custom')[props].style.display = 'none'
-                    guests_list[props]=0}}>&#10006;</div>
+                <div className="test-5-remove" onClick={()=>del(props)}>&#10006;</div>
                 <div className="color_blue row_item">Имя:</div>
                 <input type="text" className="test-5-name row_item" required/>
                 <div className="color_blue row_item">Фамилия:</div>
@@ -39,9 +51,7 @@ const Custom = (props) => {
 
     return (
         <div className={'custom'}>
-            <div className="test-5-remove" onClick={()=> {
-                document.getElementsByClassName('custom')[props].style.display = 'none'
-            guests_list[props]=0; console.log(guests_list)}}>&#10006;</div>
+            <div className="test-5-remove" onClick={()=>del(props)}>&#10006;</div>
             <div className="color_blue row_item">Имя:</div>
             <input type="text" className="test-5-name row_item" required/>
             <div className="color_blue row_item">Фамилия:</div>
@@ -50,9 +60,7 @@ const Custom = (props) => {
             <input type="tel" className="test-5-dob row_item" required/>
             <div className="color_blue row_item">Номер документа:</div>
             <input type="text" className="test-5-doc row_item" required/>
-            <input type={'button'} className="test-5-add button" value="Добавить покупателя" onClick={()=>{
-                document.getElementsByClassName('custom')[props+1].style.display = 'flex'
-                guests_list[props+1]=1; console.log(guests_list)}}/>
+            <input type={'button'} className="test-5-add button" value="Добавить покупателя" onClick={()=>add(props)}/>
         </div>
     );
 };

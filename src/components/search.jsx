@@ -1,6 +1,9 @@
 import React, {useRef, useState} from 'react';
 import request from '../action/request'
 import nav_button from "./nav_button";
+
+global.guest_list=[1, 0, 0, 0, 0, 0, 0, 0]
+
 const Search = () => {
     document.getElementsByClassName('screen')[0].style.display='block'
     let element_start=useRef()
