@@ -5,6 +5,7 @@ import concert_process from "./concert_process";
 import order from "./order";
 import search from "./search";
 import nav_button from "./nav_button";
+import Order_result from "./order_result";
 
 async function request(url, body, method, screen) {
     let myHeaders = new Headers();
@@ -15,7 +16,7 @@ async function request(url, body, method, screen) {
             let answer=await result.json()
             let status=result.status
 
-    let Functions=[search, concert_process, order]
+    let Functions=[search, concert_process, order, null, Order_result]
        switch (status){
        case 200:
            if (screen===null){return (answer)}

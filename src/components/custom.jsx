@@ -4,7 +4,6 @@ const Custom = (props) => {
     function add(item){
         document.getElementsByClassName('custom')[item+1].style.display = 'flex'
         global.guest_list[item+1]=1
-        console.log(global.guest_list)
 
 
     }
@@ -12,7 +11,6 @@ const Custom = (props) => {
     function del(item){
         document.getElementsByClassName('custom')[item].style.display = 'none'
         global.guest_list[item]=0
-        console.log(global.guest_list)
 
     }
 

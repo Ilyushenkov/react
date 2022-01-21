@@ -18,21 +18,19 @@ global.guest_list.map((data, index)=>{
     {'id': props.data.id,     'date':props.data.date_concert},
     'guest':guest
     })
-    order_save(body)
+    let code=order_save(body)
+
     async function order_save(body){
         var myHeaders = new Headers();
-        myHeaders.append("Authorization", "Bearer CCMonov2e9QKy0Wsm0q2IbJWTCqy7o3F4sEB54nwwJjbY6L1w2PUJ2gImV1IGDGuhFhmizCPxj6v0lkj");
+        myHeaders.append("Authorization", "Bearer "+localStorage.token);
 
         let result=await request('http://tickets.сделай.site/api/order', body, 'POST', null)
-            .then((result)=>console.log(result))
-        let a=2
+            .then( (result)=>{
+                request('http://tickets.сделай.site/api/order/'+result.data.code, null, 'GET', 4)
+            })
 
 
-
-    }
-
-
-
+          }
 }
 
 
