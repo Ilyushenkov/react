@@ -7,7 +7,7 @@ const Order = (props) => {
     let number=[0, 1, 2, 3, 4, 5, 6, 7]
     let list_customs=number.map((data,index)=>Custom(index))
 
-
+console.log(props)
 
 
 first_custom()
@@ -63,11 +63,11 @@ async function first_custom(first_name){
    let number=[0,1,2,3,4,5,6,7]
     first_name=document.getElementsByClassName('test-5-name')
     let last_name=document.getElementsByClassName('test-5-last')
-    let phone=document.getElementsByClassName('test-5-dob')
+    let birth_date=document.getElementsByClassName('test-5-dob')
     let document_number=document.getElementsByClassName('test-5-doc')
 
     let guests_all=number.map((data, index)=>{return {first_name:first_name[index].value, last_name:last_name[index].value,
-        phone:phone[index].value, document_number:document_number[index].value}})
+        birth_date:birth_date[index].value, document_number:document_number[index].value}})
 
 }
 

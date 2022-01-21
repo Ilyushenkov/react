@@ -8,7 +8,8 @@ import nav_button from "./nav_button";
 
 async function request(url, body, method, screen) {
     let myHeaders = new Headers();
-   // myHeaders.append("Authorization", "Bearer "+localStorage.token);
+    myHeaders.append("Authorization", "Bearer "+localStorage.token);
+    myHeaders.append("Content-Type", "application/json");
             let request_options={method: method, body:body, headers:myHeaders}
             let result=await fetch(url,request_options)
             let answer=await result.json()
@@ -17,11 +18,12 @@ async function request(url, body, method, screen) {
     let Functions=[search, concert_process, order]
        switch (status){
        case 200:
+           if (screen===null){return (answer)}
            document.getElementById('error').style.display='none'
            for (let i=0; i<document.getElementsByClassName('screen').length; i++) {
                document.getElementsByClassName('screen')[i].style.display = 'none'
            }
-            if (screen===null){return (result, status)}
+
         Functions[screen](answer)
            nav_button(screen)
                return

@@ -26,8 +26,8 @@ const Custom = (props) => {
                         <input type="text" className="test-5-name row_item" required />
                         <div className="color_blue row_item">Фамилия:</div>
                         <input type="text" className="test-5-last row_item" required/>
-                        <div className="color_blue row_item">Телефон:</div>
-                        <input type="tel" className="test-5-dob row_item" required/>
+                        <div className="color_blue row_item">Дата Рождения:</div>
+                        <input type="date" className="test-5-dob row_item" required/>
                         <div className="color_blue row_item">Номер документа:</div>
                         <input type="text" className="test-5-doc row_item" required/>
                         <input type={'button'} className="test-5-add button" value="Добавить покупателя" onClick={()=>add(props)}/>
@@ -40,8 +40,8 @@ const Custom = (props) => {
                 <input type="text" className="test-5-name row_item" required/>
                 <div className="color_blue row_item">Фамилия:</div>
                 <input type="text" className="test-5-last row_item" required/>
-                <div className="color_blue row_item">Телефон:</div>
-                <input type="tel" className="test-5-dob row_item" required/>
+                <div className="color_blue row_item">Дата рождения:</div>
+                <input type="date" className="test-5-dob row_item" required/>
                 <div className="color_blue row_item">Номер документа:</div>
                 <input type="text" className="test-5-doc row_item" required/>
 
@@ -56,8 +56,8 @@ const Custom = (props) => {
             <input type="text" className="test-5-name row_item" required/>
             <div className="color_blue row_item">Фамилия:</div>
             <input type="text" className="test-5-last row_item" required/>
-            <div className="color_blue row_item">Телефон:</div>
-            <input type="tel" className="test-5-dob row_item" required/>
+            <div className="color_blue row_item">Дата рождения:</div>
+            <input type="date" className="test-5-dob row_item" required/>
             <div className="color_blue row_item">Номер документа:</div>
             <input type="text" className="test-5-doc row_item" required/>
             <input type={'button'} className="test-5-add button" value="Добавить покупателя" onClick={()=>add(props)}/>
