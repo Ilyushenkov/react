@@ -8,8 +8,9 @@ function nav_button(screen) {
     switch (screen){
         case 0: document.getElementById('navigation').style.display='none'; return
         case 1: rend(screen); document.getElementById('navigation').children[1].style.display='none'; return;
-        case 2: rend(screen); document.getElementById('navigation').children[1].style.display='none';
-            document.getElementsByClassName('screen')[screen-1].style.display='none'; return;//title2='Подтвердить'; break
+        case 2, 3: rend(screen); document.getElementById('navigation').children[1].style.display='none';
+            document.getElementsByClassName('screen')[screen-1].style.display='none'; return;
+
     }
 
 
@@ -25,6 +26,9 @@ function nav_button(screen) {
         document.getElementsByClassName('screen')[screen-1].style.display='none'
     rend(screen)
     }
+
+
+
     rend(screen)
     document.getElementsByClassName('screen')[screen-1].style.display='none'
     document.getElementsByClassName('screen')[screen+1].style.display='none'
@@ -39,7 +43,7 @@ function nav_button(screen) {
         document.getElementsByClassName('screen')[screen].style.display='flex'
         if (screen===0){document.getElementById('navigation').style.display='none'}
         if (screen===1){document.getElementById('navigation').children[1].style.display='none'}
-        if (screen===3){order_manegment()}
+
     }
 }
 export default nav_button

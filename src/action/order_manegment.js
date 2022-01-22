@@ -26,7 +26,7 @@ global.guest_list.map((data, index)=>{
 
         let result=await request('http://tickets.сделай.site/api/order', body, 'POST', null)
             .then( (result)=>{
-                request('http://tickets.сделай.site/api/order/'+result.data.code, null, 'GET', 4)
+                request('http://tickets.сделай.site/api/order/'+result.data.code, null, 'GET', 3)
             })
 
 

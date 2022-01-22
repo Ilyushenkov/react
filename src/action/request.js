@@ -16,7 +16,7 @@ async function request(url, body, method, screen) {
             let answer=await result.json()
             let status=result.status
 
-    let Functions=[search, concert_process, order, null, Order_result]
+    let Functions=[search, concert_process, order, Order_result]
        switch (status){
        case 200:
            if (screen===null){return (answer)}

@@ -14,7 +14,7 @@ const Custom = (props) => {
 
     }
 
-   switch (props){
+   switch (props.number){
         case 0:
 
                return (
@@ -28,12 +28,12 @@ const Custom = (props) => {
                         <input type="date" className="test-5-dob row_item" required/>
                         <div className="color_blue row_item">Номер документа:</div>
                         <input type="text" className="test-5-doc row_item" required/>
-                        <input type={'button'} className="test-5-add button" value="Добавить покупателя" onClick={()=>add(props)}/>
+                        <input type={'button'} className="test-5-add button" value="Добавить покупателя" onClick={()=>add(props.number)}/>
                     </div>)
 
         case 7: return (
             <div className={'custom'}>
-                <div className="test-5-remove" onClick={()=>del(props)}>&#10006;</div>
+                <div className="test-5-remove" onClick={()=>del(props.number)}>&#10006;</div>
                 <div className="color_blue row_item">Имя:</div>
                 <input type="text" className="test-5-name row_item" required/>
                 <div className="color_blue row_item">Фамилия:</div>
@@ -49,7 +49,7 @@ const Custom = (props) => {
 
     return (
         <div className={'custom'}>
-            <div className="test-5-remove" onClick={()=>del(props)}>&#10006;</div>
+            <div className="test-5-remove" onClick={()=>del(props.number)}>&#10006;</div>
             <div className="color_blue row_item">Имя:</div>
             <input type="text" className="test-5-name row_item" required/>
             <div className="color_blue row_item">Фамилия:</div>
@@ -58,7 +58,7 @@ const Custom = (props) => {
             <input type="date" className="test-5-dob row_item" required/>
             <div className="color_blue row_item">Номер документа:</div>
             <input type="text" className="test-5-doc row_item" required/>
-            <input type={'button'} className="test-5-add button" value="Добавить покупателя" onClick={()=>add(props)}/>
+            <input type={'button'} className="test-5-add button" value="Добавить покупателя" onClick={()=>add(props.number)}/>
         </div>
     );
 };
