@@ -1,6 +1,5 @@
 import {render} from "react-dom";
 import NavButton from "../components/nav_button";
-import order_manegment from "./order_manegment";
 function nav_button(screen) {
     let title1='<<Вернуться'
     let title2='Продолжить>>'
@@ -8,7 +7,8 @@ function nav_button(screen) {
     switch (screen){
         case 0: document.getElementById('navigation').style.display='none'; return
         case 1: rend(screen); document.getElementById('navigation').children[1].style.display='none'; return;
-        case 2, 3: rend(screen); document.getElementById('navigation').children[1].style.display='none';
+        case 2:
+        case 3: rend(screen); document.getElementById('navigation').children[1].style.display='none';
             document.getElementsByClassName('screen')[screen-1].style.display='none'; return;
 
     }

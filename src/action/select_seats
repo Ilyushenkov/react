@@ -1,0 +1,8 @@
+import {render} from "react-dom";
+import choose_seats from "../components/choose_seats";
+
+function select_seats(props) {
+    console.log(props)
+   // render([choose_seats], document.getElementsByClassName('screen')[4])
+}
+export default select_seats;

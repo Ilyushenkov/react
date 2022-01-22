@@ -54,7 +54,6 @@ async function first_custom(first_name) {
     if (status === 200) {
         document.getElementsByClassName('test-5-name')[0].value = answer.first_name
         document.getElementsByClassName('test-5-last')[0].value = answer.last_name
-        //document.getElementsByClassName('test-5-dob')[0].value
         document.getElementsByClassName('test-5-doc')[0].value = answer.document_number
     }
 

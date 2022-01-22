@@ -4,7 +4,7 @@ const Error = (props) => {
     let error=document.getElementById('error')
     error.style.display='block'
    let message=''
-
+    window.scrollTo(0,0)
     for (var key in props.message.error.error) {
         message+=`${key}: ${props.message.error.error[key]}<br/>`
     }

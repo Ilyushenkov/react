@@ -1,6 +1,5 @@
 import Order_data from "../components/order_data";
 import {render} from "react-dom";
-import Custom from "../components/custom";
 
 function Order_result(props) {
 

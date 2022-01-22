@@ -1,6 +1,7 @@
 import React from 'react';
 
 const CustomData = (props) => {
+    if (props.data.place_from===null) props.data.place_from='Место не выбрано'
     return (
 
             <div className={'custom row_align border_white'} style={{display:'flex'}}>
@@ -13,6 +14,8 @@ const CustomData = (props) => {
                 <div className="test-5-name row_item color_white">{props.data.birth_date}</div>
                 <div className="color_blue row_item">Номер документа:</div>
                 <div className="test-5-name row_item color_white">{props.data.document_number}</div>
+                <div className={'row_item color_blue'}>Место в зале:</div>
+                <div className={'row_item color_white'}>{props.data.place_from}</div>
             </div>
 
     );
