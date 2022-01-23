@@ -1,13 +1,15 @@
 import React from 'react';
 import Custom_data from "./custom_data";
 import NavButton from "./nav_button";
+import hall_manegment from "../action/hall_manegment";
+import hall from "./hall";
 
 const ChooseSeats = (props) => {
     let list_custom=props.data.guest.map((data, index)=> {
         return (
             <div className={'row_item'}>
                 <Custom_data data={data} key={index}/>
-                <NavButton value={'Выбрать место'}/>
+                <NavButton value={'Выбрать место'} onclick={()=>hall_manegment()} key={index}/>
             </div>
         )
 
