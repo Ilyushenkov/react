@@ -5,14 +5,24 @@ import NavButton from "./nav_button";
 const ChooseSeats = (props) => {
     let list_custom=props.data.guest.map((data, index)=> {
         return (
-            <div>
+            <div className={'row_item'}>
                 <Custom_data data={data} key={index}/>
-                <NavButton/>
+                <NavButton value={'Выбрать место'}/>
             </div>
         )
 
     });
-return list_custom
+return (
+    <section>
+        <h1>Выбор мест для гостей</h1>
+        <h3 className={'color_red'}>Список гостей:</h3>
+        <div className={'row_align'}>
+             {list_custom}
+        </div>
+    </section>
+)
+
+
 };
 
 export default ChooseSeats;

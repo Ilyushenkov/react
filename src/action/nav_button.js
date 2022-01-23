@@ -8,7 +8,8 @@ function nav_button(screen) {
         case 0: document.getElementById('navigation').style.display='none'; return
         case 1: rend(screen); document.getElementById('navigation').children[1].style.display='none'; return;
         case 2:
-        case 3: rend(screen); document.getElementById('navigation').children[1].style.display='none';
+        case 3:
+        case 4: rend(screen); document.getElementById('navigation').children[1].style.display='none';
             document.getElementsByClassName('screen')[screen-1].style.display='none'; return;
 
     }

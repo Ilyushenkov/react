@@ -3,7 +3,7 @@ import Concert_data from "./concert_data";
 import Custom_data from "./custom_data";
 import NavButton from "./nav_button";
 
-import select_seats from "../action/select_seats";
+import sel_seats from "../action/sel_seats";
 
 const OrderData = (props) => {
     let data=props.data
@@ -26,7 +26,7 @@ const OrderData = (props) => {
             <div className={'row_align'}>
                 {list_custom}
             </div>
-            <NavButton key={1} id={'Select seats'} value={'Выбрать места'}  onclick={()=>select_seats(data)}/>
+            <NavButton key={1} id={'Select seats'} value={'Выбрать места'}  onclick={()=>sel_seats(data)}/>
            </section>
 
     );
