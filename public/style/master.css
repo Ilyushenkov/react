@@ -437,9 +437,9 @@ footer{
   }
   #abs{
       position: absolute;
-      top: auto;
-      left: 30px;
-      width: 80%;
+      margin-inline: auto;
+      top:50px;
+      width: inherit;
       height: 80%;
       z-index: 5;
       overflow: auto;
