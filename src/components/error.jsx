@@ -4,9 +4,11 @@ const Error = (props) => {
     let error=document.getElementById('error')
     error.style.display='block'
    let message=''
+    let list_error=null
     window.scrollTo(0,0)
-    for (var key in props.message.error.error) {
-        message+=`${key}: ${props.message.error.error[key]}<br/>`
+    if ((props.message.error.error===undefined)) list_error=props.message.error; else list_error=props.message.error.error
+    for (var key in list_error) {
+        message+=`${key}: ${list_error[key]}<br/>`
     }
     return (
         <div>

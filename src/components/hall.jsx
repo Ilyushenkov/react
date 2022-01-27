@@ -11,7 +11,7 @@ const Hall = (props) => {
     for (let i=4; i<75; i++) {
         for (let j = 1; j < 100; j++) {
             let message='Место ' + j+' Ряд '+i
-            row.push(<input type={'button'} className={'seat'} onClick={() => edit(message, props.Number_seat)} title={message} key={key} id={message}/>)
+            row.push(<input type={'button'} className={'seat'} onClick={() => edit(message, props.setSeat)} title={message} key={key} id={message}/>)
             key++
         }
        row_html.push(<div className={'wrap_row'}>{row}</div>)

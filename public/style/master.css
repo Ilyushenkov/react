@@ -439,7 +439,7 @@ footer{
       position: absolute;
       margin-inline: auto;
       top:50px;
-      width: inherit;
+      width: 80%;
       height: 80%;
       z-index: 5;
       overflow: auto;

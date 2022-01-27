@@ -1,9 +1,10 @@
 
 
 
-function edit(message, set_Seat) {
+function edit(message, setSeat) {
+    console.log(setSeat)
     document.getElementsByClassName('screen')[5].style.display = 'none'
-    set_Seat.current.innerText=message
+    setSeat(message)
 
     document.getElementById(message).style.visibility='hidden'
 }
