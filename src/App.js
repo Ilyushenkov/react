@@ -1,14 +1,16 @@
 import Search from "./components/search";
-import Concerts from "./components/concerts";
+import NavButton from "./components/nav_button";
+import {render} from "react-dom";
 
 
 
 function App() {
 
-  return (
+
+  return (<div>
 
 <Search/>
-
+</div>
   );
 }
 

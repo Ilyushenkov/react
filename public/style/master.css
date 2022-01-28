@@ -490,3 +490,9 @@ footer{
 #navigation{
     display: none;
 }
+.row_align_left{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: left;
+}
