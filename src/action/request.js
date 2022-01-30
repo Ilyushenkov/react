@@ -6,6 +6,7 @@ import order from "./order";
 import search from "./search";
 import nav_button from "./nav_button";
 import Order_result from "./order_result";
+import close_screen from "./close_screen";
 
 async function request(url, body, method, screen) {
     let myHeaders = new Headers();
@@ -21,18 +22,20 @@ async function request(url, body, method, screen) {
        case 200:
            if (screen===null){return (answer)}
            document.getElementById('error').style.display='none'
-           for (let i=0; i<document.getElementsByClassName('screen').length; i++) {
-               document.getElementsByClassName('screen')[i].style.display = 'none'
-           }
+           close_screen()
 
         Functions[screen](answer)
            nav_button(screen)
                return
        case 422:
-           return render([<Error title={'Ошибка валидации'} message={answer}/>], document.getElementById('error'))
+           render([<Error title={'Ошибка валидации'} message={answer}/>], document.getElementById('error'))
+           document.getElementById('error').style.display='flex'
+           return
            case 401:
-               if (screen===null) return
-               return render([<Error title={'Ошибка авторизации'} message={answer}/>], document.getElementById('error'))
+              // if (screen===null) return
+               render([<Error title={'Ошибка авторизации'} message={answer}/>], document.getElementById('error'))
+               document.getElementById('error').style.display='flex'
+               return
 
 
    }

@@ -32,7 +32,6 @@ function nav_button(screen) {
         render([<NavButton onclick={()=>click_btn1(screen-1)} value={title1} key={0}/>, <NavButton onclick={()=>click_btn2(screen+1)} value={title2} key={1}/>],
             document.getElementById('navigation'))
         document.getElementById('navigation').style.display='flex'
-       // document.getElementById('navigation').children[0].style.display='flex'
         document.getElementsByClassName('screen')[screen].style.display='flex'
         if (screen===0){document.getElementById('navigation').style.display='none'}
 
