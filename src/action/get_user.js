@@ -7,6 +7,8 @@ async function get_user(user_data) {
     let response=await request(url, body, 'POST', null)
     let result=await response
     localStorage.token=result.data.token
-    console.log(result)
+    url=''
+    let concerts='tickets.сделай.site/user/booking'
+
 }
 export default get_user
