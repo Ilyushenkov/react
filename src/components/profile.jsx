@@ -1,5 +1,6 @@
 import React from 'react';
 import Concert_data from "./concert_data";
+import exit from "../action/exit";
 
 
 const Profile = (props) => {
@@ -26,7 +27,7 @@ const Profile = (props) => {
                         <p className="test-3-num color_white row_item">{i}</p>
 
                     </div>
-                    <input type="button" className="test-3-logout button" value="Выйти" onClick="exit()"/>
+                    <input type="button" className="test-3-logout button" value="Выйти" onClick={()=>exit()}/>
                         <p className="color_red">Предстаящие концерты</p>
                         <div className="row_align" id="concert">
                             {data_concerts}

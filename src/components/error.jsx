@@ -2,7 +2,7 @@ import React from 'react';
 
 const Error = (props) => {
     let error=document.getElementById('error')
-    error.style.display='block'
+    error.style.display='flex'
    let message=''
     let list_error=null
     window.scrollTo(0,0)

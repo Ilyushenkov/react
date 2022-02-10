@@ -14,12 +14,19 @@ async function request(url, body, method, screen) {
     myHeaders.append("Content-Type", "application/json");
             let request_options={method: method, body:body, headers:myHeaders}
             let result=await fetch(url,request_options)
-            let answer=await result.json()
+            let answer=''
+            try {
+                answer=await result.json()
+            } catch (e) {
+                answer=await result
+            }
+
             let status=result.status
 
     let Functions=[search, concert_process, order, Order_result]
        switch (status){
        case 200:
+           case 204:
            if (screen===null){return (answer)}
            document.getElementById('error').style.display='none'
            close_screen()
@@ -29,12 +36,12 @@ async function request(url, body, method, screen) {
                return
        case 422:
            render([<Error title={'Ошибка валидации'} message={answer}/>], document.getElementById('error'))
-           document.getElementById('error').style.display='flex'
+           document.getElementById('error').style.display='block'
            return
            case 401:
               // if (screen===null) return
                render([<Error title={'Ошибка авторизации'} message={answer}/>], document.getElementById('error'))
-               document.getElementById('error').style.display='flex'
+               document.getElementById('error').style.display='block'
                return
 
 
