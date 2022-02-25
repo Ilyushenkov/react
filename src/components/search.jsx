@@ -5,7 +5,7 @@ import nav_button from "./nav_button";
 global.guest_list=[1, 0, 0, 0, 0, 0, 0, 0]
 
 const Search = () => {
-    document.getElementsByClassName('screen')[0].style.display='block'
+    //document.getElementsByClassName('screen')[0].style.display='block'
     let element_start=useRef()
     let element_finish=useRef()
     let element_type=useRef()
