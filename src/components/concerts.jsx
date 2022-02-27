@@ -1,10 +1,18 @@
 import React, {useMemo, useState} from 'react';
 import Concert from "./concert";
 import {render} from "react-dom";
+import request from "../action/request";
 
 
 
-const Concerts = (props) => {
+const Concerts = async (props) => {
+
+    let req={date1:'2022-02-28', date2:'2022-06-01', type:'Рок'}//useParams()
+    let answer=await request(`http://tickets.сделай.site/api/concert?date1=${req.date1}&date2=${req.date2}&type=${req.type}`, null, 'GET', null)
+
+    let concerts=await answer.data.concert
+
+    let list_concert=concerts.map((concerts, index)=><Concert data={concerts} number={index} key={index}/>)
 
 let [sort, setSort]=useState('price')
     let [low_price, setLowprice]=useState(0)
