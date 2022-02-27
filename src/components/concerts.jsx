@@ -1,16 +1,25 @@
-import React, {useMemo, useState} from 'react';
+import React, {useEffect, useMemo, useState} from 'react';
 import Concert from "./concert";
 import {render} from "react-dom";
 import request from "../action/request";
+import {useParams} from "react-router-dom";
 
 
 
-const Concerts = async (props) => {
+const Concerts =(props) => {
 
-    let req={date1:'2022-02-28', date2:'2022-06-01', type:'Рок'}//useParams()
-    let answer=await request(`http://tickets.сделай.site/api/concert?date1=${req.date1}&date2=${req.date2}&type=${req.type}`, null, 'GET', null)
+    const load_concerts=()=> {
+        try {
+            request(`http://tickets.сделай.site/api/concert?date1=${req.date1}&date2=${req.date2}&type=${req.type}`, null, 'GET', null)
+                .then(answer=>setConcerts(answer.data.concert))
+                console.log('Привет')
+        } catch (e) {
 
-    let concerts=await answer.data.concert
+        }
+    }
+    load_concerts()
+    let req=useParams()
+    let [concerts, setConcerts]=useState()
 
     let list_concert=concerts.map((concerts, index)=><Concert data={concerts} number={index} key={index}/>)
 
