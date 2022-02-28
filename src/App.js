@@ -1,9 +1,10 @@
 
-import {Routes, Route, Link} from "react-router-dom";
+import {Routes, Route} from "react-router-dom";
 import SearchPage from "./components/pages/search_page";
 import Auth from "./components/pages/auth";
 import Registeration from "./components/pages/registeration";
 import Concertspage from "./components/pages/concerts_page";
+import Test from "./components/test";
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
                 <Route path={'/register'} element={<Registeration/>}/>
                 <Route path={'/login'} element={<Auth/>}/>
                 <Route path={'/concerts/:date1/:date2/:type'} element={<Concertspage/>}/>
+                <Route path={'/test'} element={<Test/>}/>
             </Routes>
 
         </div>

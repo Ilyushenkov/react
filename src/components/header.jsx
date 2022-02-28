@@ -1,7 +1,4 @@
 import React from 'react';
-import registr from "../action/registr";
-import login from "../action/login";
-import search from "../action/search";
 import {Link} from "react-router-dom";
 
 const Header = () => {
@@ -9,14 +6,14 @@ const Header = () => {
         <header>
             <div className="row_align">
                 <div className="color_red row_item">
-                    <a href="index.html"><img src="../../image/logo.jpeg" alt="WhiteTickets" className="test-0-logo"/></a>
+                    <Link to={'/'}><img src="/../../image/logo.jpeg" alt="WhiteTickets" className="test-0-logo"/></Link>
                 </div>
                 <div className="color_red row_item"><p className="center">Обратите внимание, билеты на эти мероприятия
                     заканчиваются!</p>
                     <div id="stars" className="row_align_nowrap">
-                        <img src="../../image/maruf.jpg" alt="Маруф" className="test-1-logo" id="maruv"/>
-                            <img src="../../image/leps.jpg" alt="Лепс" className="test-1-logo" id="leps"/>
-                                <img src="../../image/loboda.png" alt="Лобода" className="test-1-logo" id="loboda"/>
+                        <img src="/../../image/maruf.jpg" alt="Маруф" className="test-1-logo" id="maruv"/>
+                            <img src="/../../image/leps.jpg" alt="Лепс" className="test-1-logo" id="leps"/>
+                                <img src="/../../image/loboda.png" alt="Лобода" className="test-1-logo" id="loboda"/>
                     </div>
                 </div>
             </div>
@@ -25,6 +22,7 @@ const Header = () => {
                 <Link to={'/register'}><input type={'button'} value={'Зарегистрироваться'} key={6} className={'row_item button'}/></Link>
                 <Link to={'/login'}><input type={'button'} value={'Войти'} key={77} className={'row_item button'}/></Link>
                 <Link to={'/'}><input type={'button'} value={'Поиск концертов'} key={76} className={'row_item button'}/></Link>
+
             </div>
         </header>
     );

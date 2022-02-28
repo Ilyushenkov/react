@@ -2,8 +2,7 @@ import React, {useRef, useState} from 'react';
 import request from '../action/request'
 import nav_button from "./nav_button";
 import {Link} from "react-router-dom";
-import concerts_page from "./pages/concerts_page";
-import concert_process from "../action/concert_process";
+
 
 global.guest_list=[1, 0, 0, 0, 0, 0, 0, 0]
 
@@ -33,7 +32,7 @@ const Search = () => {
                                     <option value="классика">Классика</option>
                                     <option value="рок">Рок</option>
                                     <option value="джаз">Джаз</option>
-                                    <option value="народная/фолк">Фольклор</option>
+                                    <option value="Фольклор">Фольклор</option>
                                     <option value="поп-музыка">Поп-музыка</option>
                                     <option value="другое">Другое</option>
                                 </select>
