@@ -1,5 +1,6 @@
 import React from 'react';
 import order from "../action/order";
+import {Link} from "react-router-dom";
 
 
 const Concert = (props) => {
@@ -25,9 +26,8 @@ const Concert = (props) => {
                         <p className="color_blue row_item">Общая цена:</p>
                         <p className="test-4-fp row_item color_white">{props.data.price*localStorage.guests}</p>
 
-
-                        <input type="button" value="Оформить заказ"
-                               onClick={()=>order(props.data)} className="test-4-bsb button"/>
+                        <Link to={`/order/${props.data.id}/${props.data.concert_code}/${props.data.name_concert}/${props.data.date_concert}/${props.data.time_start}/${props.data.time_finish}/${props.data.duration}/${props.data.price}`}>
+                            <input type="button" value="Оформить заказ" onClick={()=>order(props.data)} className="test-4-bsb button"/></Link>
                 </div>
 
 
