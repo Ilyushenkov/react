@@ -4,12 +4,14 @@ import Nav_button from "./nav_button";
 import order_manegment from "../action/order_manegment";
 import {useParams} from "react-router-dom";
 
+
 const Order = (props) => {
 
 let req=useParams()
 
+    let [list_guest, setList_guest]=useState([<Custom/>])
     let number=[0, 1, 2, 3, 4, 5, 6, 7]
-    let list_customs=number.map((data,index)=><Custom key={data} number={index}/>)
+
 
     let [user, setUser]=useState()
     let getUser=()=>{
@@ -24,7 +26,11 @@ let req=useParams()
             document.getElementsByClassName('test-5-last')[0].value = user.last_name
             document.getElementsByClassName('test-5-doc')[0].value = user.document_number
         }
-        catch (e) {}
+        catch (e) {
+            document.getElementsByClassName('test-5-name')[0].value = []
+            document.getElementsByClassName('test-5-last')[0].value = []
+            document.getElementsByClassName('test-5-doc')[0].value = []
+        }
     }
 
     useEffect(()=>getUser(), [])
@@ -53,8 +59,18 @@ let req=useParams()
                 <p className="test-4-fp row_item color_white">{req.price}</p>
             </div>
         <p className={'color_red'}>Информация о гостях</p>
+    <table style={{margin:'15px'}}>
+        <tr>
+            <td><input type={'button'} value={'-'} style={{background: '#FFFAFA', padding:'10px', borderRadius:'10px', cursor:'pointer'}}
+            onClick={()=>del_guest(list_guest, setList_guest)}/></td>
+            <td><span className={'color_red'}>Управление гостями</span></td>
+            <td><input type={'button'} value={'+'} style={{background: '#FFFAFA', padding:'10px', borderRadius:'10px', cursor:'pointer'}}
+            onClick={()=>{list_guest.length<8 ? setList_guest([...list_guest, <Custom/>]):number=[2, 2]}}/></td>
+        </tr>
+    </table>
     <div className={'width100 row_align'}>
-        {list_customs}
+
+        {list_guest}
 
     </div>
         <div className={'width100 row_align'}>
@@ -64,19 +80,12 @@ let req=useParams()
         </div>
     );
 };
-/*
-async function first_custom(first_name) {
-    let myHeaders = new Headers();
-    myHeaders.append("Authorization", "Bearer " + localStorage.token);
-    let request_options = {method: 'GET', headers: myHeaders}
-    let result = await fetch('http://tickets.сделай.site/user', request_options)
-    let answer = await result.json()
-    let status = result.status
-    if (status === 200) {
-        document.getElementsByClassName('test-5-name')[0].value = answer.first_name
-        document.getElementsByClassName('test-5-last')[0].value = answer.last_name
-        document.getElementsByClassName('test-5-doc')[0].value = answer.document_number
-    }
 
-}*/
+function del_guest(list_guest, setList_guest) {
+    if (list_guest.length===1) return
+   let list=list_guest.splice(0, list_guest.length-1)
+    setList_guest(list)
+
+}
+
 export default Order;
