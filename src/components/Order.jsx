@@ -9,10 +9,10 @@ const Order = (props) => {
 
 let req=useParams()
 
-    let [list_guest, setList_guest]=useState([<Custom/>])
+
     let number=[0, 1, 2, 3, 4, 5, 6, 7]
-
-
+    let [custom, set_custom]=useState({first_name:'', last_name:'',birth_date:'', document_number:''})
+    let [list_guest, setList_guest]=useState([<Custom  custom={custom} set_custom={set_custom}/>])
     let [user, setUser]=useState()
     let getUser=()=>{
         let myHeaders = new Headers();
@@ -27,9 +27,9 @@ let req=useParams()
             document.getElementsByClassName('test-5-doc')[0].value = user.document_number
         }
         catch (e) {
-            document.getElementsByClassName('test-5-name')[0].value = []
+           /* document.getElementsByClassName('test-5-name')[0].value = []
             document.getElementsByClassName('test-5-last')[0].value = []
-            document.getElementsByClassName('test-5-doc')[0].value = []
+            document.getElementsByClassName('test-5-doc')[0].value = []*/
         }
     }
 
@@ -74,7 +74,7 @@ let req=useParams()
 
     </div>
         <div className={'width100 row_align'}>
-    <Nav_button onclick={()=>order_manegment(props)} value={'Подтвердить'} style={{marginInline:'auto'}}/>
+    <input type={'button'} value={'Подтвердить'} style={{marginInline:'auto'}} onClick={()=>confirm(custom)} className={'button'}/>
         </div>
 </section>
         </div>
@@ -87,5 +87,9 @@ function del_guest(list_guest, setList_guest) {
     setList_guest(list)
 
 }
+function confirm(custom) {
+   console.log(custom)
+}
+
 
 export default Order;
