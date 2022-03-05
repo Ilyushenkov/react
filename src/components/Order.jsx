@@ -1,8 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import Custom from "./custom";
-import Nav_button from "./nav_button";
-import order_manegment from "../action/order_manegment";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import request from "../action/request";
 
 
@@ -11,6 +9,8 @@ const Order = (props) => {
 let req=useParams()
 
     let i=0
+    let history=useNavigate();
+    let code=''
     let number=[0, 1, 2, 3, 4, 5, 6, 7]
     let [custom, set_custom]=useState([])
     let [list_guest, setList_guest]=useState([<Custom  custom={custom} set_custom={set_custom} key={i}/>])
@@ -28,9 +28,6 @@ let req=useParams()
             document.getElementsByClassName('test-5-doc')[0].value = user.document_number
         }
         catch (e) {
-           /* document.getElementsByClassName('test-5-name')[0].value = []
-            document.getElementsByClassName('test-5-last')[0].value = []
-            document.getElementsByClassName('test-5-doc')[0].value = []*/
         }
     }
 
@@ -69,14 +66,16 @@ let req=useParams()
             onClick={()=>{list_guest.length<8 ? setList_guest([...list_guest, <Custom custom={custom} set_custom={set_custom} key={list_guest.length}/>]):number=[2, 2]}}/></td>
         </tr>
     </table>
+
     <div className={'width100 row_align'}>
 
         {list_guest}
 
     </div>
         <div className={'width100 row_align'}>
-    <input type={'button'} value={'Подтвердить'} style={{marginInline:'auto'}} onClick={()=>confirm(req.id, req.date_concert, custom)} className={'button'}/>
+    <input type={'button'} value={'Подтвердить'} style={{marginInline:'auto'}} className={'button'} onClick={()=>confirm(req.id, req.date_concert, custom, history)}/>
         </div>
+
 </section>
         </div>
     );
@@ -90,14 +89,15 @@ function del_guest(list_guest, setList_guest, custom) {
 
 
 }
-async function confirm(id, date_concert, custom) {
+async function confirm(id, date_concert, custom, history) {
+
 let body={
     concert:{id: id, date: date_concert},
     guest:custom}
     body=JSON.stringify(body)
     let result=await request('http://tickets.сделай.site/api/order', body, 'POST', null)
-        .then(result=>console.log(result))
+    let code=await result.data.code
+    history(`/order_management/${code}`)
 }
-
 
 export default Order;

@@ -1,20 +1,17 @@
-import React, {useRef, useState} from 'react';
-import request from '../action/request'
-import nav_button from "./nav_button";
+import React, {useState} from 'react';
+
 import {Link} from "react-router-dom";
 
 
-global.guest_list=[1, 0, 0, 0, 0, 0, 0, 0]
+
 
 const Search = () => {
-    //document.getElementsByClassName('screen')[0].style.display='block'
+
     let [element_start, setElement_start]=useState()
     let [element_finish, setElement_finish]=useState()
     let [element_type, setElement_type]=useState('Классика')
     let [guests, setGuests]=useState(1)
-    localStorage.guests=guests
-  //  nav_button(0)
-    //let data={date1:element_start.current.value, date2:element_finish.current.value, type:element_type.current.value}
+
     return (
         <div className={'width100'}>
             <section id="find">
