@@ -3,16 +3,17 @@ import Custom from "./custom";
 import Nav_button from "./nav_button";
 import order_manegment from "../action/order_manegment";
 import {useParams} from "react-router-dom";
+import request from "../action/request";
 
 
 const Order = (props) => {
 
 let req=useParams()
 
-
+    let i=0
     let number=[0, 1, 2, 3, 4, 5, 6, 7]
-    let [custom, set_custom]=useState({first_name:'', last_name:'',birth_date:'', document_number:''})
-    let [list_guest, setList_guest]=useState([<Custom  custom={custom} set_custom={set_custom}/>])
+    let [custom, set_custom]=useState([])
+    let [list_guest, setList_guest]=useState([<Custom  custom={custom} set_custom={set_custom} key={i}/>])
     let [user, setUser]=useState()
     let getUser=()=>{
         let myHeaders = new Headers();
@@ -62,10 +63,10 @@ let req=useParams()
     <table style={{margin:'15px'}}>
         <tr>
             <td><input type={'button'} value={'-'} style={{background: '#FFFAFA', padding:'10px', borderRadius:'10px', cursor:'pointer'}}
-            onClick={()=>del_guest(list_guest, setList_guest)}/></td>
+            onClick={()=>{del_guest(list_guest, setList_guest, custom); i--}}/></td>
             <td><span className={'color_red'}>Управление гостями</span></td>
             <td><input type={'button'} value={'+'} style={{background: '#FFFAFA', padding:'10px', borderRadius:'10px', cursor:'pointer'}}
-            onClick={()=>{list_guest.length<8 ? setList_guest([...list_guest, <Custom/>]):number=[2, 2]}}/></td>
+            onClick={()=>{list_guest.length<8 ? setList_guest([...list_guest, <Custom custom={custom} set_custom={set_custom} key={list_guest.length}/>]):number=[2, 2]}}/></td>
         </tr>
     </table>
     <div className={'width100 row_align'}>
@@ -74,21 +75,28 @@ let req=useParams()
 
     </div>
         <div className={'width100 row_align'}>
-    <input type={'button'} value={'Подтвердить'} style={{marginInline:'auto'}} onClick={()=>confirm(custom)} className={'button'}/>
+    <input type={'button'} value={'Подтвердить'} style={{marginInline:'auto'}} onClick={()=>confirm(req.id, req.date_concert, custom)} className={'button'}/>
         </div>
 </section>
         </div>
     );
 };
 
-function del_guest(list_guest, setList_guest) {
+function del_guest(list_guest, setList_guest, custom) {
     if (list_guest.length===1) return
-   let list=list_guest.splice(0, list_guest.length-1)
+    custom.splice(list_guest.length-1, 1)
+    let list=list_guest.splice(0, list_guest.length-1)
     setList_guest(list)
 
+
 }
-function confirm(custom) {
-   console.log(custom)
+async function confirm(id, date_concert, custom) {
+let body={
+    concert:{id: id, date: date_concert},
+    guest:custom}
+    body=JSON.stringify(body)
+    let result=await request('http://tickets.сделай.site/api/order', body, 'POST', null)
+        .then(result=>console.log(result))
 }
 
 

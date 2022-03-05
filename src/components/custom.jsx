@@ -1,8 +1,13 @@
 import React, {useState} from 'react';
 
 const Custom = (props) => {
-let [user, setUser]=useState({first_name: '', last_name: '', birth_date: '', document_number: ''})
-    props.set_custom(user)
+
+
+    let [user, setUser]=useState({})
+
+    let customs=props.custom
+
+    props.set_custom([...customs, user])
     return (
         <div className={'custom'}>
 
