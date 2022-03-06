@@ -1,7 +1,9 @@
 import request from "./request";
 
-async function reserve_seat(props) {
-  // console.log(props)
+
+const Reserve_seat=async (props)=>{
+//async function reserve_seat(props) {
+
    let url='http://tickets.сделай.site/api/order/'+props.data.data.code+'/seat'
    let response=null
    let result=null
@@ -12,8 +14,7 @@ async function reserve_seat(props) {
       if (response===null) return
       console.log(result)
    }
-response=request('http://tickets.сделай.site/api/order/'+props.data.data.code, null,'GET', 3)
-
+window.location.href=`/order_management/${props.data.data.code}`
 
 }
-export default reserve_seat
+export default Reserve_seat

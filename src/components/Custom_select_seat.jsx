@@ -7,7 +7,7 @@ const CustomSelectSeat = (props) => {
     let [seat, setSeat]=useState('Место не выбрано')
     props.data.place_from=seat
     return (
-        <div className={'custom row_align border_white'} style={{display:'flex'}}>
+        <div className={'custom row_align border_white width100'} style={{display:'flex'}}>
 
             <div className="color_blue row_item">Имя:</div>
             <div className="test-5-name row_item color_white">{props.data.first_name}</div>

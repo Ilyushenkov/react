@@ -6,7 +6,7 @@ const Hall = (props) => {
     let row=[]
     let row_html=[]
     let hall=[]
-    document.getElementsByClassName('screen')[5].style.display='flex'
+    window.scroll(100, 0)
     let key=0
     for (let i=4; i<75; i++) {
         for (let j = 1; j < 100; j++) {
@@ -19,7 +19,7 @@ const Hall = (props) => {
     }
     hall.push(row_html)
     return(
-        <div id={'abs'}>
+        <div id={'abs'} style={{display:'flex'}}>
             <div id={'select_seats'}>
         <section>
             <h1 className={'color_white'}>Выберите место</h1>

@@ -4,10 +4,9 @@ import Hall from "../components/hall";
 
 function hall_manegment(setSeat) {
 
-    render([<Hall setSeat={setSeat} key={4}/>], document.getElementsByClassName('screen')[5])
-   let screen=document.getElementsByClassName('screen')[5]
+    render([<Hall setSeat={setSeat} key={4}/>], document.getElementById('screen2'))
+   document.getElementById('screen2').style.display='flex'
 
-    screen.style.display='flex'
 
 }
 export  default hall_manegment
