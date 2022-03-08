@@ -1,16 +1,28 @@
-import React from 'react';
-import Concert_data from "./concert_data";
+import React, {useEffect, useState} from 'react';
 import exit from "../action/exit";
 
 
+
 const Profile = (props) => {
-    let i=0
-    let concerts=props.concerts.data.items
-    let data_concerts=concerts.map((value)=>{
-        let date= new Date(value.tickets.date_concert)
-        if (date<new Date()) {i++}
-        else return <Concert_data data={value.tickets}/>
-    })
+    localStorage.token=props.token
+    let [custom, setCustom] = useState({first_name: '', last_name: '', phone: '', document_number: ''})
+    useEffect(()=> {
+try {
+    let myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer "+props.token);
+    myHeaders.append("Content-Type", "application/json");
+    let request_options={method: 'GET',  headers:myHeaders}
+    fetch('http://tickets.сделай.site/user', request_options)
+        .then(custom => custom.json())
+        .then(custom => setCustom(custom))
+}
+catch  {
+    setCustom({first_name: '', last_name: '', phone: '', document_number: ''})
+}
+           
+
+
+    }, [])
 
     return (
         <div>
@@ -20,18 +32,18 @@ const Profile = (props) => {
                     <p className="color_red">Данные регистрации</p>
                     <div className="row_align">
                         <p className="color_blue row_item">Имя:</p>
-                        <p className="test-3-name color_white row_item">{props.user.first_name}</p>
+                        <p className="test-3-name color_white row_item">{custom.first_name}</p>
                         <p className="color_blue row_item">Фамилия:</p>
-                        <p className="test-3-last color_white row_item">{props.user.last_name}</p>
-                        <p className="color_blue row_item">Количество посещенных концертов:</p>
-                        <p className="test-3-num color_white row_item">{i}</p>
+                        <p className="test-3-last color_white row_item">{custom.last_name}</p>
+                        <p className={'color_blue row_item'}>Номер телефона</p>
+                        <p className={'color_white row_item'}>{custom.phone}</p>
+                        <p className={'color_blue row_item'}>Номер документа</p>
+                        <p className={'color_white row_item'}>{custom.document_number}</p>
 
                     </div>
                     <input type="button" className="test-3-logout button" value="Выйти" onClick={()=>exit()}/>
                         <p className="color_red">Предстаящие концерты</p>
-                        <div className="row_align" id="concert">
-                            {data_concerts}
-                        </div>
+
                 </div>
             </section>
         </div>
