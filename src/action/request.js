@@ -22,14 +22,14 @@ async function request(url, body, method, screen) {
        switch (status){
        case 200:
            case 204:
-           if (screen===null){return (answer)}
+          // if (screen===null){return (answer)}
            document.getElementById('error').style.display='none'
            //close_screen()
 
        // Functions[screen](answer)
 
           // nav_button(screen)
-               return
+               return answer
        case 422:
            render([<Error title={'Ошибка валидации'} message={answer}/>], document.getElementById('error'))
            document.getElementById('error').style.display='block'

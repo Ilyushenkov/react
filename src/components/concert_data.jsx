@@ -16,8 +16,7 @@ const ConcertData = (props) => {
                 <p className="test-4-dd row_item color_white">{props.data.time_start}</p>
                 <p className="color_blue row_item">Время окончания концерта:</p>
                 <p className="test-4-dt row_item color_white">{props.data.time_finish}</p>
-                <p className="color_blue row_item">Место проведения концерта:</p>
-                <p className="test-4-dt row_item color_white">{props.data.venue}</p>
+
             </div>
         </div>
     );

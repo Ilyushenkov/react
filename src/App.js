@@ -8,6 +8,7 @@ import Test from "./components/test";
 import Order_page from "./components/pages/order_page";
 import Order_management_page from "./components/pages/order_management_page";
 import Select_seat_page from "./components/pages/select_seat_page";
+import Profile_page from "./components/pages/profile_page";
 
 
 
@@ -25,6 +26,7 @@ function App() {
                 <Route path={'/order/:id/:concert_code/:name_concert/:date_concert/:time_start/:time_finish/:duration/:price'} element={<Order_page/>}/>
                 <Route path={'/order_management/:code'} element={<Order_management_page/>}/>
                 <Route path={'/select_seat/:code'} element={<Select_seat_page/>}/>
+                <Route path={'/profile'} element={<Profile_page/>}/>
             </Routes>
 
         </div>

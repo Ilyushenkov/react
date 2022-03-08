@@ -1,9 +1,8 @@
 import request from "./request";
 
-
 const Reserve_seat=async (props)=>{
-//async function reserve_seat(props) {
 
+   //let history=useNavigate()
    let url='http://tickets.сделай.site/api/order/'+props.data.data.code+'/seat'
    let response=null
    let result=null
@@ -14,7 +13,8 @@ const Reserve_seat=async (props)=>{
       if (response===null) return
       console.log(result)
    }
-window.location.href=`/order_management/${props.data.data.code}`
+ window.location.href=`/order_management/${props.data.data.code}`
+
 
 }
 export default Reserve_seat

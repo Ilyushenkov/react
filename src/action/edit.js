@@ -7,6 +7,7 @@ function edit(message, setSeat) {
     setSeat(message)
 
     document.getElementById(message).style.visibility='hidden'
+
 }
 
 export default edit
