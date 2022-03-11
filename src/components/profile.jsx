@@ -1,9 +1,13 @@
 import React, {useEffect, useState} from 'react';
-import exit from "../action/exit";
+
+import {Link} from "react-router-dom";
+import ListConcerts from "./list_concerts";
 
 
 
 const Profile = (props) => {
+
+
     localStorage.token=props.token
     let [custom, setCustom] = useState({first_name: '', last_name: '', phone: '', document_number: ''})
     useEffect(()=> {
@@ -19,14 +23,14 @@ try {
 catch  {
     setCustom({first_name: '', last_name: '', phone: '', document_number: ''})
 }
-           
 
 
-    }, [])
+
+    }, [props.token])
 
     return (
         <div>
-            <section>
+
                 <h1>Личный кабинет</h1>
                 <div className="colomn_align">
                     <p className="color_red">Данные регистрации</p>
@@ -41,11 +45,11 @@ catch  {
                         <p className={'color_white row_item'}>{custom.document_number}</p>
 
                     </div>
-                    <input type="button" className="test-3-logout button" value="Выйти" onClick={()=>exit()}/>
-                        <p className="color_red">Предстаящие концерты</p>
+                    <Link to={'/'}><input type="button" className="test-3-logout button" value="Выйти" onClick={()=>{localStorage.token=''}}/></Link>
+
 
                 </div>
-            </section>
+
         </div>
     );
 };

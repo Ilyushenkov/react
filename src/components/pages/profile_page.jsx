@@ -3,6 +3,7 @@ import request from "../../action/request";
 import Profile from "../profile";
 import Header from "../header";
 import Footer from "../footer";
+import ListConcerts from "../list_concerts";
 
 
 const Profile_page = () => {
@@ -12,8 +13,7 @@ const Profile_page = () => {
         let url='http://tickets.сделай.site/api/login'
         localStorage.token=null
         let [token, setToken]=useState(null)
-       /* let [custom, setCustom]=useState({first_name:'', last_name:'', phone:'', document_number:''})
-        let [booking, setBooking]=useState({data:{items:[]}})*/
+
         useEffect(()=>{
 try {
     request(url, body, 'POST', null)
@@ -26,24 +26,18 @@ try {
 
 
 
-
-
-
-
-/*
-
-
-                fetch('http://tickets.сделай.site/user/booking', {method:'GET'})
-                .then(booking=>setBooking(booking))*/
-        }, [])
+        }, [token])
 
     return (
         <div>
             <Header/>
             <main>
-                <div id={'error'} className={'error'}/>
-                 <Profile key={new Date()} token={token}/>
+            <section>
+                <div id={'error'} className={'error'} key={21}/>
+                 <Profile token={token}/>
+                <ListConcerts key={23} token={token}/>
 
+            </section>
             </main>
             <Footer/>
         </div>
