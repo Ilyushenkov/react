@@ -25,6 +25,7 @@ const SelectSeatPage = () => {
             <main>
             <section>
                 <div id={'error'}/>
+                <div id={'screen2'}/>
                 <h1>Выбор мест</h1>
                 <h3 className={'color_red'}>Сведения о концете:</h3>
                 <Concert_data data={order.ticket}/>
