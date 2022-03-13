@@ -23,16 +23,16 @@ let req=useParams()
             fetch('http://tickets.сделай.site/user', {headers:myHeaders})
                 .then(user=>user.json())
                 .then(user=>setUser(user))
-            document.getElementsByClassName('test-5-name')[0].value = user.first_name
-            document.getElementsByClassName('test-5-last')[0].value = user.last_name
-            document.getElementsByClassName('test-5-doc')[0].value = user.document_number
+
         }
         catch (e) {
         }
     }
 
     useEffect(()=>getUser(), [])
-
+    document.getElementsByClassName('test-5-name')[0].value = user.first_name
+    document.getElementsByClassName('test-5-last')[0].value = user.last_name
+    document.getElementsByClassName('test-5-doc')[0].value = user.document_number
     return (
         <div className={'width100'}>
 <section>

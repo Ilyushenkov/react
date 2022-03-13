@@ -8,11 +8,11 @@ import ListConcerts from "../list_concerts";
 
 const Profile_page = () => {
 
-        let user_data=global.user
-        let body=JSON.stringify(user_data)
+        let user=global.user
+        let body=JSON.stringify(user)
         let url='http://tickets.сделай.site/api/login'
-        localStorage.token=null
-        let [token, setToken]=useState(null)
+
+        let [token, setToken]=useState(localStorage.token)
 
         useEffect(()=>{
 try {
@@ -34,7 +34,7 @@ try {
             <main>
             <section>
                 <div id={'error'} className={'error'} key={21}/>
-                 <Profile token={token}/>
+                 <Profile token={token} key={22}/>
                 <ListConcerts key={23} token={token}/>
 
             </section>
