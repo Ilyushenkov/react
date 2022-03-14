@@ -11,6 +11,7 @@ const Search = () => {
     let [element_finish, setElement_finish]=useState()
     let [element_type, setElement_type]=useState('Классика')
     let [guests, setGuests]=useState(1)
+    localStorage.guests=guests
 
     return (
         <div className={'width100'}>

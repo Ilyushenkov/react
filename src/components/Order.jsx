@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import Custom from "./custom";
 import {useNavigate, useParams} from "react-router-dom";
 import request from "../action/request";
@@ -7,32 +7,12 @@ import request from "../action/request";
 const Order = (props) => {
 
 let req=useParams()
-
+    let number=[3, 3]
     let i=0
     let history=useNavigate();
-    let code=''
-    let number=[0, 1, 2, 3, 4, 5, 6, 7]
     let [custom, set_custom]=useState([])
-    let [list_guest, setList_guest]=useState([<Custom  custom={custom} set_custom={set_custom} key={i}/>])
-    let [user, setUser]=useState()
-    let getUser=()=>{
-        let myHeaders = new Headers();
-        myHeaders.append("Authorization", "Bearer "+localStorage.token);
-        myHeaders.append("Content-Type", "application/json");
-        try {
-            fetch('http://tickets.сделай.site/user', {headers:myHeaders})
-                .then(user=>user.json())
-                .then(user=>setUser(user))
+    let [list_guest, setList_guest]=useState([<Custom  custom={custom} set_custom={set_custom} key={i} id={i}/>])
 
-        }
-        catch (e) {
-        }
-    }
-
-    useEffect(()=>getUser(), [])
-    document.getElementsByClassName('test-5-name')[0].value = user.first_name
-    document.getElementsByClassName('test-5-last')[0].value = user.last_name
-    document.getElementsByClassName('test-5-doc')[0].value = user.document_number
     return (
         <div className={'width100'}>
 <section>
@@ -63,7 +43,7 @@ let req=useParams()
             onClick={()=>{del_guest(list_guest, setList_guest, custom); i--}}/></td>
             <td><span className={'color_red'}>Управление гостями</span></td>
             <td><input type={'button'} value={'+'} style={{background: '#FFFAFA', padding:'10px', borderRadius:'10px', cursor:'pointer'}}
-            onClick={()=>{list_guest.length<8 ? setList_guest([...list_guest, <Custom custom={custom} set_custom={set_custom} key={list_guest.length}/>]):number=[2, 2]}}/></td>
+            onClick={()=>{list_guest.length<8 ? setList_guest([...list_guest, <Custom custom={custom} set_custom={set_custom} key={list_guest.length} id={list_guest.length}/>]):number=[2, 2]}}/></td>
         </tr>
     </table>
 

@@ -5,7 +5,7 @@ import request from "../action/request";
 
 const Registr = () => {
     let [user, setUser]=useState({'first_name':'', 'last_name':'', 'phone':'', 'document_number':'', 'password':''})
-
+    //let [token, setToken]=useState(localStorage.token)
     let history=useNavigate()
 
     async function registr_req(user) {
@@ -16,6 +16,15 @@ const Registr = () => {
         if (result.status!==204) return
         let user_data={phone:user.phone, password:user.password}
         global.user=user_data
+
+
+
+
+        body=JSON.stringify(user_data)
+        url='http://tickets.сделай.site/api/login'
+        response=await  request(url, body, 'POST', null)
+        let token=await response.data.token
+        localStorage.token=token
 
         history('/profile')
     }

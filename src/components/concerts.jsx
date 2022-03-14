@@ -17,7 +17,6 @@ const Concerts =(props) => {
     function load(){
 
         try {
-            //fetch('https://json.versant.digital/.netlify/functions/fake-api/message')
 
             request(`http://tickets.сделай.site/api/concert?date1=${req.date1}&date2=${req.date2}&type=${req.type}`, null, 'GET', null)
                 //.then(res => res.json())
@@ -26,20 +25,7 @@ const Concerts =(props) => {
                 });
         } catch (e) {}
     };
-    console.log(concert)
 
-    /* const load_concerts=()=> {
-         try {
-             request(`http://tickets.сделай.site/api/concert?date1=${req.date1}&date2=${req.date2}&type=${req.type}`, null, 'GET', null)
-                 .then(answer=>setConcerts(answer.data.concert))
-                 console.log('Привет')
-         } catch (e) {
-
-         }
-     }
-     load_concerts()
-     let req=useParams()
-     let [concerts, setConcerts]=useState()*/
 
      let list_concert=concert.map((concert, index)=><Concert data={concert} number={index} key={index}/>)
 let [sort, setSort]=useState('price')
@@ -49,7 +35,7 @@ let [sort, setSort]=useState('price')
        return(arr[index].props.data.price>=low_price && arr[index].props.data.price<=high_price)})})
     if (low_price<0) setLowprice(0)
     if(high_price<low_price) setHighprice(Infinity)
-console.log(sort_data)
+
 
     switch (sort){
         case 'price': sort_data.sort((a, b)=>{
@@ -58,8 +44,8 @@ console.log(sort_data)
             return price1-price2} )
             break
         case 'date': sort_data.sort((a, b)=>{
-            let date1=a.date_concert+' '+a.time_start
-            let date2=b.date_concert+' '+b.time_start
+            let date1=a.props.data.date_concert+' '+a.props.data.time_start
+            let date2=b.props.data.date_concert+' '+b.props.data.time_start
 
             return new Date(date1)-new Date(date2)
         })

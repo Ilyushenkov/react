@@ -1,9 +1,6 @@
 import React, {useEffect, useState} from 'react';
 
 import {Link} from "react-router-dom";
-import ListConcerts from "./list_concerts";
-
-
 
 const Profile = (props) => {
 
