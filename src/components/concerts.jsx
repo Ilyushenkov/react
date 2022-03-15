@@ -1,3 +1,5 @@
+//Список найденных концертов
+
 import React, {useEffect, useMemo, useState} from 'react';
 import Concert from "./concert";
 import request from "../action/request";
@@ -18,19 +20,21 @@ const Concerts =(props) => {
 
         try {
 
-            request(`http://tickets.сделай.site/api/concert?date1=${req.date1}&date2=${req.date2}&type=${req.type}`, null, 'GET', null)
-                //.then(res => res.json())
+            request(`http://tickets.сделай.site/api/concert?date1=${req.date1}&date2=${req.date2}&type=${req.type}`, null, 'GET')
+
                 .then(concert => {
                     setConcert(concert.data.concert);
                 });
         } catch (e) {}
     };
 
-
+//Формирование из Json массива компонентов - найденных концертов
      let list_concert=concert.map((concert, index)=><Concert data={concert} number={index} key={index}/>)
 let [sort, setSort]=useState('price')
+
     let [low_price, setLowprice]=useState(0)
     let [high_price, setHighprice]=useState(Infinity)
+    //Фильтрация по цене
    let sort_data=useMemo(()=>{return list_concert.filter((data, index, arr)=>{
        return(arr[index].props.data.price>=low_price && arr[index].props.data.price<=high_price)})})
     if (low_price<0) setLowprice(0)

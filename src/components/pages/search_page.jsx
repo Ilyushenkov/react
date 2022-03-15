@@ -1,3 +1,5 @@
+//Страница поиска концертов
+
 import React from 'react';
 import Header from "../header";
 import Search from "../search";
@@ -8,7 +10,7 @@ const SearchPage = () => {
         <div>
             <Header/>
             <main>
-                <div id={'error'} className={'error'}></div>
+                <div id={'error'} className={'error'}/>
                 <Search/>
             </main>
             <Footer/>

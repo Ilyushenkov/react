@@ -1,3 +1,5 @@
+//Страница личного кабинета
+
 import React, {useEffect, useState} from 'react';
 import request from "../../action/request";
 import Profile from "../profile";
@@ -16,7 +18,7 @@ const Profile_page = () => {
 
         useEffect(()=>{
 try {
-    request(url, body, 'POST', null)
+    request(url, body, 'POST')
         .then(token => {setToken(token.data.token)})
 
 }

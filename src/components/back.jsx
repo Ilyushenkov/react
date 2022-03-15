@@ -1,3 +1,4 @@
+//Кнопка назад
 import React from 'react';
 
 const Back = () => {

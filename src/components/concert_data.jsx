@@ -1,3 +1,4 @@
+//Сведения о концерте
 import React from 'react';
 
 

@@ -1,3 +1,4 @@
+// Место в зале
 import React from 'react';
 
 const Seat = (props) => {

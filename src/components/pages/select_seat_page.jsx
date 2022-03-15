@@ -1,3 +1,5 @@
+//Страница выбора места
+
 import React, {useEffect, useState} from 'react';
 import Choose_seats from "../choose_seats";
 import {useParams} from "react-router-dom";
@@ -13,7 +15,7 @@ const SelectSeatPage = () => {
             name_concert:'', date_concert:'', time_start:'', time_finish:'', venue:''}})
     let code=req.code
     useEffect(()=>{
-        request(`http://tickets.сделай.site/api/order/${code}`, null, 'GET', null)
+        request(`http://tickets.сделай.site/api/order/${code}`, null, 'GET')
             .then(order=>setOrder(order))
             .then(order=>console.log(order))
     }, [])

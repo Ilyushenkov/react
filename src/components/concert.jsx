@@ -1,3 +1,5 @@
+//Сведения о концерте с кнопкой выбора
+
 import React from 'react';
 import {Link} from "react-router-dom";
 

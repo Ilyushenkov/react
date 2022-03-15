@@ -1,6 +1,6 @@
 
 import edit from "../action/edit";
-import ReactDOM from "react-dom";
+
 
 const Hall = (props) => {
     let row=[]

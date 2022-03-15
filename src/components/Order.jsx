@@ -1,3 +1,4 @@
+//Управление гостями
 import React, {useState} from 'react';
 import Custom from "./custom";
 import {useNavigate, useParams} from "react-router-dom";
@@ -75,7 +76,7 @@ let body={
     concert:{id: id, date: date_concert},
     guest:custom}
     body=JSON.stringify(body)
-    let result=await request('http://tickets.сделай.site/api/order', body, 'POST', null)
+    let result=await request('http://tickets.сделай.site/api/order', body, 'POST')
     let code=await result.data.code
     history(`/order_management/${code}`)
 }

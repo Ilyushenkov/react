@@ -1,3 +1,5 @@
+//Страница управления заказом
+
 import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 import request from "../../action/request";
@@ -13,7 +15,7 @@ const Order_management_page = () => {
         name_concert:'', date_concert:'', time_start:'', time_finish:'', venue:'', place_from:''}})
     useEffect(()=>{load(code);}, [])
     function load(code) {
-        request(`http://tickets.сделай.site/api/order/${code}`, null, 'GET', null)
+        request(`http://tickets.сделай.site/api/order/${code}`, null, 'GET')
             .then(order=>setOrder(order))
     }
 

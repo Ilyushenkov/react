@@ -1,3 +1,4 @@
+//Страница авторизации
 import React from 'react';
 import Header from "../header";
 import Footer from "../footer";
@@ -8,7 +9,7 @@ const Auth = () => {
         <div>
             <Header/>
             <main>
-                <div id={'error'} className={'error'}></div>
+                <div id={'error'} className={'error'}/>
                 <Login/>
             </main>
             <Footer/>

@@ -1,3 +1,5 @@
+//Вызов модального окна с выбором места
+
 import {render} from "react-dom";
 import Hall from "../components/hall";
 

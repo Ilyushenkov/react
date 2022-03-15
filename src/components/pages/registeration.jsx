@@ -1,3 +1,5 @@
+//Страница регистрации
+
 import React from 'react';
 import Header from "../header";
 import Footer from "../footer";
@@ -8,7 +10,7 @@ const Registeration = () => {
         <div>
             <Header/>
             <main>
-                <div id={'error'} className={'error'}></div>
+                <div id={'error'} className={'error'}/>
                 <Registr/>
             </main>
             <Footer/>

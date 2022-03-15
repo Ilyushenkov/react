@@ -1,3 +1,5 @@
+//Добавление форм для гостей
+
 import React, {useEffect, useState} from 'react';
 
 const Custom = (props) => {
@@ -17,7 +19,7 @@ const Custom = (props) => {
         }
 
     }
-
+//Если пользователь авторизовался, нужно его данные вывести в форму
     useEffect(()=>{ if (props.id===0) getUser()
     }, [])
 

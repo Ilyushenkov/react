@@ -1,5 +1,6 @@
-import React from 'react';
+//Список гостей для выбора места
 
+import React from 'react';
 import Custom_select_seat from "./Custom_select_seat";
 import Reserve_seat from "../action/reserv_seat";
 import {useNavigate} from "react-router-dom";
