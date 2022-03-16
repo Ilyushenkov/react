@@ -22,7 +22,7 @@ const Search = () => {
             <section id="find">
                 <h1>Форма поиска</h1>
                 <p className="color_red"><i>Лучший путеводитель в мире развлечений</i></p>
-                <form method="GET" encType="multipart/form-data" action=''>
+                <form method="GET" encType="multipart/form-data" onSubmit={locate}>
                     <fieldset className="row_align color_white">
                         <label htmlFor="date1" className="row_item">Дата концерта от:</label>
                         <input type="date" className="test-0-fd row_item" name='date1' required id="date1" onChange={(e)=>
@@ -44,7 +44,7 @@ const Search = () => {
                                        onChange={(e)=>setGuests(e.target.value)} id={"amount_pers"}/>
                     </fieldset>
                     <div className="row_align">
-                        <input type="button" value="Поиск билетов" className="test-0-fbs button row_item" onClick={locate}/>
+                        <input type="submit" value="Поиск билетов" className="test-0-fbs button row_item"/>
 
 
 
