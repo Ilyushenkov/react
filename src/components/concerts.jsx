@@ -4,6 +4,7 @@ import React, {useEffect, useMemo, useState} from 'react';
 import Concert from "./concert";
 import request from "../action/request";
 import {useParams} from "react-router-dom";
+import Download from "./download";
 
 
 
@@ -14,8 +15,8 @@ const Concerts =(props) => {
         load();
     }, []);
     let req=useParams()
-    let url=`http://tickets.сделай.site/api/concert?date1=${req.date1}&date2=${req.date2}&type=${req.type}`
-    console.log(url)
+    /*let url=`http://tickets.сделай.site/api/concert?date1=${req.date1}&date2=${req.date2}&type=${req.type}`
+    console.log(url)*/
     function load(){
 
         try {
@@ -24,6 +25,7 @@ const Concerts =(props) => {
 
                 .then(concert => {
                     setConcert(concert.data.concert);
+                    document.getElementById('download').className='none';
                 });
         } catch (e) {}
     };
@@ -58,6 +60,7 @@ let [sort, setSort]=useState('price')
 if(sort_data.length===0){
     return (
         <div className={'width100'}>
+            <Download/>
             <section>
                 <h1>Найденные концерты</h1>
 
@@ -83,6 +86,7 @@ if(sort_data.length===0){
     return (
 
        <div className={'width100'}>
+
 
             <section>
 
