@@ -8,6 +8,7 @@ import {Link} from "react-router-dom";
 const Login = () => {
     const [user, setUser]=useState({phone:'', password:''})
     global.user=user
+    localStorage.token=''
 
 
     return (
