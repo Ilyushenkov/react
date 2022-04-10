@@ -25,7 +25,7 @@ const Concerts =(props) => {
 
                 .then(concert => {
                     setConcert(concert.data.concert);
-                    document.getElementById('download').className='none';
+
                 });
         } catch (e) {}
     };

@@ -506,7 +506,7 @@ footer{
     justify-content: left;
 }
 #download{
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
@@ -538,5 +538,5 @@ footer{
 
 }
 .none{
-    display: none;
+    display: none !important;
 }
