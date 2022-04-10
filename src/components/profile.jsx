@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 
 import {Link} from "react-router-dom";
-import Download from "./download";
+
 
 const Profile = (props) => {
 
