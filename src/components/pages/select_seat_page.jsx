@@ -8,6 +8,7 @@ import Concert_data from "../concert_data";
 import Header from "../header";
 import Footer from "../footer";
 import Back from "../back";
+import Download from "../download";
 
 const SelectSeatPage = () => {
     let req=useParams()
@@ -23,6 +24,7 @@ const SelectSeatPage = () => {
 
     return (
         <div>
+            <Download/>
             <Header/>
             <main>
             <section>

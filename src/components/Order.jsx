@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import Custom from "./custom";
 import {useNavigate, useParams} from "react-router-dom";
 import request from "../action/request";
+import Download from "./download";
 
 
 const Order = (props) => {
@@ -16,6 +17,7 @@ let req=useParams()
 
     return (
         <div className={'width100'}>
+
 <section>
     <h1>Оформление заказа</h1>
     <p className={'color_red'}>Информация о билете</p>

@@ -6,6 +6,7 @@ import Profile from "../profile";
 import Header from "../header";
 import Footer from "../footer";
 import ListConcerts from "../list_concerts";
+import Download from "../download";
 
 
 const Profile_page = () => {
@@ -32,6 +33,7 @@ try {
 
     return (
         <div>
+            <Download/>
             <Header/>
             <main>
             <section>

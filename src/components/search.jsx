@@ -5,7 +5,7 @@ import {useNavigate} from "react-router-dom";
 const Search = () => {
 
     let date=new Date().toISOString().split('T')[0]
-    console.log(date)
+
     let history=useNavigate()
     let [element_start, setElement_start]=useState()
     let [element_finish, setElement_finish]=useState()
