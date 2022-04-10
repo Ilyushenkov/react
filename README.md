@@ -12,4 +12,7 @@
 <p>Описание проекта: 
 <a href="https://disk.yandex.ru/i/xfHg6JiAUTTkMA">Скачать</a>
 </p>
+  <p>Сайт проекта: 
+<a href="http://petsreact.xn--80ahdri7a.site/">Посмотреть</a>
+</p>
 </main>
