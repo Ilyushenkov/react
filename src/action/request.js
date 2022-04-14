@@ -3,9 +3,11 @@
 import {render} from "react-dom";
 import React from "react";
 import Error from "../components/error";
+import Download from "../components/download";
 
 
 async function request(url, body, method) {
+    render([<Download/>], document.getElementById('window_download'))
     let myHeaders = new Headers();
     myHeaders.append("Authorization", "Bearer "+localStorage.token);
     myHeaders.append("Content-Type", "application/json");
@@ -19,6 +21,7 @@ async function request(url, body, method) {
                 answer=await result
             }
 
+            document.getElementById('window_download').className='none'
             let status=result.status
 
             if (document.getElementById('download')!==null) {

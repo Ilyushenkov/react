@@ -36,7 +36,6 @@ const ListConcerts = (props) => {
 
     return (
         <div>
-
             <p className={'color_red'}>Посещенные концерты: {i}</p>
             <p className={"color_red"}>Предстаящие концерты:</p>
             {data_concerts}

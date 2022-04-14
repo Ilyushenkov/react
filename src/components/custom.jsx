@@ -31,7 +31,6 @@ const Custom = (props) => {
     return (
         (props.id!==0) ?
             (<div className={'custom'}>
-
             <div className="color_blue row_item">Имя:</div>
             <input type="text" className="test-5-name row_item" required onChange={(e)=>setUser({...user, first_name: e.target.value})}/>
             <div className="color_blue row_item">Фамилия:</div>

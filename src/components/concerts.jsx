@@ -15,8 +15,6 @@ const Concerts =(props) => {
         load();
     }, []);
     let req=useParams()
-    /*let url=`http://tickets.сделай.site/api/concert?date1=${req.date1}&date2=${req.date2}&type=${req.type}`
-    console.log(url)*/
     function load(){
 
         try {
@@ -60,7 +58,6 @@ let [sort, setSort]=useState('price')
 if(sort_data.length===0){
     return (
         <div className={'width100'}>
-            <Download/>
             <section>
                 <h1>Найденные концерты</h1>
 

@@ -22,7 +22,6 @@ const Order_management_page = () => {
 
     return (
         <div>
-            <Download/>
             <Header/>
             <main>
                 <div id={'error'} className={'error'}/>

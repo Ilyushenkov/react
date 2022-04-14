@@ -24,7 +24,6 @@ const SelectSeatPage = () => {
 
     return (
         <div>
-            <Download/>
             <Header/>
             <main>
             <section>

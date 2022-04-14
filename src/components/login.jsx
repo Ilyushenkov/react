@@ -12,13 +12,11 @@ const Login = () => {
 
 
     return (
-
         <div className={'width100'}>
             <section>
                 <h1>Вход в личный кабинет</h1>
                 <p className="color_red">Введите регистрационные данные</p>
                 <form method="GET" action="">
-
                     <fieldset className="row_align color_white">
                         <label htmlFor="tel" className="row_item">Введите ваше телефон</label>
                         <input type="tel" className="test-1-fpn row_item" required name="tel" id="tel"

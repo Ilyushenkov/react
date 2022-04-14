@@ -24,6 +24,7 @@ const Header = () => {
                 <Link to={'/'}><input type={'button'} value={'Поиск концертов'} key={76} className={'row_item button'}/></Link>
 
             </div>
+            <div id={'window_download'}/>
         </header>
     );
 };

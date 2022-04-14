@@ -28,7 +28,6 @@ catch  {
 
     return (
         <div>
-
                 <h1>Личный кабинет</h1>
                 <div className="colomn_align">
                     <p className="color_red">Данные регистрации</p>
@@ -44,8 +43,6 @@ catch  {
 
                     </div>
                     <Link to={'/'}><input type="button" className="test-3-logout button" value="Выйти" onClick={()=>{localStorage.token=''}}/></Link>
-
-
                 </div>
 
         </div>

@@ -33,7 +33,6 @@ try {
 
     return (
         <div>
-            <Download/>
             <Header/>
             <main>
             <section>

@@ -5,7 +5,6 @@ import React from 'react';
 const ConcertData = (props) => {
     return (
         <div>
-
             <div className="border_white row_align">
                 <p className="color_blue row_item">Номер консерта:</p>
                 <p className="test-4-fn row_item color_white">{props.data.ticket_id}</p>
