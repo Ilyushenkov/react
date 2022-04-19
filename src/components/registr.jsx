@@ -27,6 +27,7 @@ const Registr = () => {
         localStorage.token=token
 
         history('/profile')
+
     }
 
     return (

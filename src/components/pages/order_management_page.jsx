@@ -7,7 +7,7 @@ import Order_data from "../order_data";
 import Header from "../header";
 import Back from "../back";
 import Footer from "../footer";
-import Download from "../download";
+
 
 const Order_management_page = () => {
     let req=useParams()
