@@ -4,6 +4,7 @@ import {render} from "react-dom";
 import React from "react";
 import Error from "../components/error";
 import Download from "../components/download";
+import error from "../components/error";
 
 
 async function request(url, body, method) {
@@ -14,18 +15,15 @@ async function request(url, body, method) {
             let request_options={method: method, body:body, headers:myHeaders}
             let result=await fetch(url,request_options)
             let answer=''
+            let status=await result.status
             try {
                 answer=await result.json()
 
-            } catch (e) {
-                answer=await result
-            }
+            } catch {await console.log(status)}
+
 
             document.getElementById('window_download').className='none'
-            let status=result.status
 
-            if (document.getElementById('download')!==null) {
-                document.getElementById('download').className='none'}
 
        switch (status){
        case 200:

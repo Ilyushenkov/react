@@ -25,7 +25,7 @@ const Concerts =(props) => {
                     setConcert(concert.data.concert);
 
                 });
-        } catch (e) {}
+        } catch (e) {console.log(e)}
     };
 
 //Формирование из Json массива компонентов - найденных концертов
